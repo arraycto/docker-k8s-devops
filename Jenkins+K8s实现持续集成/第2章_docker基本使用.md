@@ -81,3 +81,8 @@ Remove one or more images
   --no-prune         Do not delete untagged parents
 [root@SZV1000302643 demo2]#
 ```
+
+## 查看容器日志
+
++ `docker logs 容器id`:查看瞬时的容器内的标准输出
++ `docker logs -f 容器id`:可以持续查看容器内部的标准输出(比如有些程序是持续运行地，`-f` 让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出)
