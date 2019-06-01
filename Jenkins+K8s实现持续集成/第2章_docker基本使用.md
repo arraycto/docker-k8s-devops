@@ -111,3 +111,37 @@ Remove one or more images
 + `l00379880/ubuntu:v587`:指定要创建的目标镜像名
 
 用docker images可以查看刚刚提交的新镜像
+
+## Docker搭建常用的开发环境
+
+### 1.搭建nginx [参考教程](https://www.runoob.com/docker/docker-install-nginx.html)
+
+`$ docker run -d -p 8082:80 --name runoob-nginx-test-web -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v ~/nginx/logs:/var/log/nginx nginx`
+
+命令说明：
+
++ `-p 8082:80`： 将容器的 80 端口映射到主机的 8082 端口
++ `--name runoob-nginx-test-web`：将容器命名为 runoob-nginx-test-web。
++ `~/nginx/www:/usr/share/nginx/html`：将我们自己创建的 www 目录挂载到容器的 **/usr/share/nginx/html**，这个是nginx的对外访问目录
++ `-v ~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf`：将我们自己创建的 nginx.conf 挂载到容器的 /etc/nginx/nginx.conf。
++ `-v ~/nginx/logs:/var/log/nginx`：将我们自己创建的 logs 挂载到容器的 /var/log/nginx。
+
+启动以上命令后进入 ~/nginx/www 目录 `$ cd ~/nginx/www`,创建index.html,内容如下：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <h1>我的第一个标题</h1>
+    <p>我的第一个段落。</p>
+</body>
+</html>
+```
+
+然后访问`本机ip:8082`即可访问刚刚创建的index.html了
+
+![index.html](https://www.runoob.com/wp-content/uploads/2016/06/B0DFB2A6-E1B5-4502-8EC4-0687A7C880FA.jpg)
