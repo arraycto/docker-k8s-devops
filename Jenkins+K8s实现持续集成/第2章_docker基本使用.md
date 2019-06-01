@@ -86,3 +86,11 @@ Remove one or more images
 
 + `docker logs 容器id`:查看瞬时的容器内的标准输出
 + `docker logs -f 容器id`:可以持续查看容器内部的标准输出(比如有些程序是持续运行地，`-f` 让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出)
+
+## 查看容器进程
+
+> `docker top 容器id或name`
+
+## 查看容器的详细信息
+
+> `docker inspect 容器id或name`
