@@ -1,6 +1,6 @@
 # docker-k8s-devops
 
-> docker、kubernetes和devops学习
+> docker、kubernetes和devops学习,Docker的教程严重推荐 https://www.runoob.com/docker/docker-tutorial.html
 
 + [Docker入门](https://www.imooc.com/learn/867)
 + [Jenkins+K8s实现持续集成](https://www.imooc.com/learn/1112)
