@@ -50,6 +50,10 @@ docker login -u 用户名 -p 密码 registry.cn-hangzhou.aliyuncs.com
 docker logout
 ```
 
+## docker build自己的镜像
+
+> 见[docker_demo](docker_demo)
+
 
 
 
