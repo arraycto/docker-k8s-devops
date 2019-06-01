@@ -8,6 +8,7 @@
 
 > docker run -p 3306:3306 --name mysql-demo1 -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=aA111111 -d mysql:5.7.15
 
++ `-p 本机端口:容器内端口`实现内外的端口映射，当两个端口一样时可以直接用`-P`来代替
 + `-e`:Enviroment环境变量
 + `-d`:daemon 后台运行
 + `-v`:volume 存储卷
