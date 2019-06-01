@@ -94,3 +94,7 @@ Remove one or more images
 ## 查看容器的详细信息
 
 > `docker inspect 容器id或name`
+
+## 镜像的查看和修改
+
+> 见教程 https://www.runoob.com/docker/docker-image-usage.html
