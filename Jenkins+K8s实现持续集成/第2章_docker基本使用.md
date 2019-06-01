@@ -136,7 +136,7 @@ Remove one or more images
 
 ![index.html](https://www.runoob.com/wp-content/uploads/2016/06/B0DFB2A6-E1B5-4502-8EC4-0687A7C880FA.jpg)
 
-### 2.## 安装mysql
+### 2.安装mysql
 
 > docker run -p 3306:3306 --name mysql-demo1 -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=aA111111 -d mysql:5.7.15
 
@@ -204,3 +204,32 @@ docker run  -v ~/python/myapp:/usr/src/myapp  -w /usr/src/myapp python:3.7 pytho
 + `-w /usr/src/myapp` :指定容器的/usr/src/myapp目录为工作目录
 + `python helloworld.py` :使用容器的python命令来执行工作目录中的helloworld.py文件
 
+### 5.使用redis
+
+```shell
+mkdir -p ~/redis/data
+docker run -p 6379:6379 -v ~/redis/data:/data  -d redis:3.2 redis-server --appendonly yes
+docker exec -it 8b95a955f23f redis-cli
+set hello world # 返回"ok"
+get hello # 返回"world"
+```
+
+### 6.使用mongo
+
+```shell
+mkdir -p ~/mongo/db
+docker run -p 27017:27017 -v ~/mongo/db:/data/db -d mongo:3.2
+docker run -it mongo:3.2 mongo --host 10.162.118.225 # 这里的ip是容器所在VM的公网ip
+```
+
+### 7.使用apache
+
+```shell
+mkdir -p /root/apache/www/
+mkdir -p /root/apache/logs/
+cd /root/apache/www/
+echo "hello hahaha">index.html
+docker run -p 80:80 -v /root/apache/www/:/usr/local/apache2/htdocs/ -v /root/apache/logs/:/usr/local/apache2/logs/ -d httpd
+```
+
+然后访问`ip:80`即可看到`hello hahaha`
