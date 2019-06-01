@@ -4,17 +4,7 @@
 
 ![docker基本架构](https://img1.mukewang.com/5cf21d7700011b3819201080.jpg)
 
-## 安装mysql的基本命令
-
-> docker run -p 3306:3306 --name mysql-demo1 -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=aA111111 -d mysql:5.7.15
-
-+ `-p 本机端口:容器内端口`实现内外的端口映射，当不想自己指定时直接用`-P`来代替，会自动占用主机上的一个`高端口`(一般是32768~65536)来映射容器的端口
-+ `-e`:Enviroment环境变量
-+ `-d`:daemon 后台运行
-+ `-v`:volume 存储卷
-
 ## 登入与登出
-
 
 ### docker login 
 
@@ -145,3 +135,33 @@ Remove one or more images
 然后访问`本机ip:8082`即可访问刚刚创建的index.html了
 
 ![index.html](https://www.runoob.com/wp-content/uploads/2016/06/B0DFB2A6-E1B5-4502-8EC4-0687A7C880FA.jpg)
+
+### 2.## 安装mysql
+
+> docker run -p 3306:3306 --name mysql-demo1 -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=aA111111 -d mysql:5.7.15
+
++ `-p 本机端口:容器内端口`实现内外的端口映射，当不想自己指定时直接用`-P`来代替，会自动占用主机上的一个`高端口`(一般是32768~65536)来映射容器的端口
++ `-e`:Enviroment环境变量
++ `-d`:daemon 后台运行
++ `-v`:volume 存储卷
+
+安装mysql的8.x版本需要额外加权限
+
+```Dockerfile
+# docker 中下载 mysql
+docker pull mysql
+
+#启动
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Lzslov123! -d mysql
+
+#进入容器
+docker exec -it mysql bash
+
+#登录mysql
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Lzslov123!';
+
+#添加远程登录用户
+CREATE USER 'liaozesong'@'%' IDENTIFIED WITH mysql_native_password BY 'Lzslov123!';
+GRANT ALL PRIVILEGES ON *.* TO 'liaozesong'@'%';
+```
