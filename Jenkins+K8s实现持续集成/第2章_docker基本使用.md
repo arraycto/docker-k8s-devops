@@ -165,3 +165,42 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Lzslov123!';
 CREATE USER 'liaozesong'@'%' IDENTIFIED WITH mysql_native_password BY 'Lzslov123!';
 GRANT ALL PRIVILEGES ON *.* TO 'liaozesong'@'%';
 ```
+
+### 3.使用tomcat
+
+> `docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat`
+
++ `-p 8080:8080`：将容器的8080端口映射到主机的8080端口
++ `-v $PWD/test:/usr/local/tomcat/webapps/test`：将主机中当前目录下的test挂载到容器的/test
+
+然后在$PWD/test下创建index.html
+
+```html
+hello l00379880
+```
+
+这是访问`ip:8080/test`即可访问上面创建的html文件了
+
+### 4.使用python3.7
+
+首先在`~/python/myapp`目录下创建helloworld.py,内容如下：
+
+```python
+#!/usr/bin/python
+print("Hello, World!");
+```
+
+然后执行docker命令使用python3.7的镜像来执行上面的py脚本即可
+
+```shell
+docker run  -v ~/python/myapp:/usr/src/myapp  -w /usr/src/myapp python:3.7 python helloworld.py
+```
+
+输出`Hello, World!`,正常运行！
+
+命令说明：
+
++ `-v $PWD/myapp:/usr/src/myapp` :将主机中当前目录下的myapp挂载到容器的`/usr/src/myapp`
++ `-w /usr/src/myapp` :指定容器的/usr/src/myapp目录为工作目录
++ `python helloworld.py` :使用容器的python命令来执行工作目录中的helloworld.py文件
+
