@@ -98,3 +98,16 @@ Remove one or more images
 ## 镜像的查看和修改
 
 > 见教程 https://www.runoob.com/docker/docker-image-usage.html
+
+### 对修改后的容器保存为新的镜像
+
+> docker commit -m='create index.html' -a='l00379880' 0a6389dbe443 l00379880/ubuntu:v587
+
+各个参数说明：
+
++ `-m`:提交的描述信息
++ `-a`:指定镜像作者
++ `0a6389dbe443`：容器ID
++ `l00379880/ubuntu:v587`:指定要创建的目标镜像名
+
+用docker images可以查看刚刚提交的新镜像
