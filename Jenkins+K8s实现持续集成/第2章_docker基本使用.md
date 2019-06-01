@@ -54,8 +54,29 @@ docker logout
 
 > 见[docker_demo](docker_demo)
 
+## docker的帮助查看
 
+> 任何命令想不起来时都可以通过`--help`来查看帮助
 
+```bash
+[root@SZV1000302643 demo2]# docker stats --help
 
+Usage:  docker stats [OPTIONS] [CONTAINER...]
 
+Display a live stream of container(s) resource usage statistics
 
+  -a, --all          Show all containers (default shows just running)
+  --help             Print usage
+  --no-stream        Disable streaming stats and only pull the first result
+
+[root@SZV1000302643 demo2]# docker rmi --help
+
+Usage:  docker rmi [OPTIONS] IMAGE [IMAGE...]
+
+Remove one or more images
+
+  -f, --force        Force removal of the image
+  --help             Print usage
+  --no-prune         Do not delete untagged parents
+[root@SZV1000302643 demo2]#
+```
