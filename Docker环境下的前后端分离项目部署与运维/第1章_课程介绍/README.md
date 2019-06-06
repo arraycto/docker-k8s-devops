@@ -20,3 +20,7 @@
 
 ![人人网前后端分离项目架构](https://img.mukewang.com/szimg/5cf87555000165df19201080.jpg)
 
+#### 项目部署详细图示
+
+![前后端分离的项目部署图](https://img.mukewang.com/szimg/5cf87a760001192119201080.jpg)
+
