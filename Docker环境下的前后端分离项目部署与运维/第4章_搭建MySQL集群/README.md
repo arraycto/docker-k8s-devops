@@ -170,3 +170,5 @@
 + 第5个
   > docker run -d -p 3310:3306 -v v5:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123456 -e CLUSTER_NAME=PXC -e XTRABACKUP_PASSWORD=abc123456 -e CLUSTER_JOIN=node1 --privileged --name=node5 --net=net1 --ip 172.18.0.6 pxc
 
+
+创建完毕，可以再navicat 中连接上面的5个数据库，只要其中任何一个有改动，都会实时同步到其他四个数据库地，有1个同步失败则全局都会更新失败~
