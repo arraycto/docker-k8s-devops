@@ -4,4 +4,4 @@
 
 ### 前后端分离项目的架构
 
-![前后端分离项目的架构](https://i.loli.net/2019/06/06/5cf8712cd534714855.jpg)
+![前后端分离项目的架构](https://img.mukewang.com/szimg/5cf873ef00016c1c19201080.jpg)
