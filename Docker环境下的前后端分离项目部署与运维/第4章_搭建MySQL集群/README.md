@@ -33,3 +33,39 @@
 > 图中的节点被认为关闭防火墙，直接与数据库其他节点同步，会发现此时这个节点写入数据会直接报错~如下图
 
 ![PXC方案的数据强一致性](https://img.mukewang.com/szimg/5cf8c74b0001166819201080.jpg)
+
+## 4-2 创建PXC的MySQL集群
+
+### 镜像地址
+
+[percona/percona-xtradb-cluster](https://hub.docker.com/r/percona/percona-xtradb-cluster)
+
+### 用到的命令
+
++ 安装：
+  + `docker pull percona/percona-xtradb-cluster`
+  + `docker load < /home/soft/pxc.tar.gz`
+
++ 更名：
+  + docker tag percona/percona-xtradb-cluster pxc
+
++ 删除：
+  + `docker rmi percona/percona-xtradb-cluster pxc`
+
++ 创建卷
+  + `docker volume create --name v#`
+
++ 创建PXC集群mysql
+  + `docker run -d -p 3306:3306 -v v2:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123456 -e CLUSTER_NAME=PXC -e XTRABACKUP_PASSWORD=abc123456 -e CLUSTER_JOIN=node1 --privileged --name=node2 --net=net1 --ip 172.19.0.3 pxc`
+
+### 创建内部网络
+
+> docker虚拟机自带的网段为`172.17.0.*`，则`docker network create net1`的ip地址为`172.18.0.*`, 以此类推...
++ 创建内部网络：`docker network create net1`
++ 查看内部网络：`docker network inspect net1`
++ 删除内部网络：`docker network rm net1`
++ 由于创建内部网络没有指定 --subnet, run容器时出错：
+  + docker: Error response from daemon: User specified IP address is supported only when connecting to networks with user configured subnets.
+  + 解决方案 http://www.suohi.cc/posts/57be697d731d7c006f9daf74
+  
+  
