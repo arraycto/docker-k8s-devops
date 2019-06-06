@@ -14,3 +14,19 @@
 + 停止：`service firewall stop`  或者 `systemctl stop firewall`
 + 重启：`service firewall restart` 或者 `systemctl restart firewall`
 + 禁用：`service firewall disable` 或者 `systemctl disable firewall`
++ 端口管理
+  + 查看开放的端口：`firewall-cmd --permanent --list-ports`
+  + 查看开放的服务：`firewall-cmd --permanent --list-services`
+  + 添加开放端口：`firewall-cmd --permanent --add-port=8080-8085/tcp`
+  + 移除开放端口：`firewall-cmd --permanent --remove-port=8080-8085/tcp`
+  + 刷新防火墙：`firewall-cmd reload`
+  
+### docker管理
+
++ 刷新守护进程: `systemctl daemon-reload`
++ 重启：`systemctl restart docker` 或者 `service docker restart`
++ 停止：`service docker stop` 或者 `systemctl stop docker`
+
+### docker命令
+
+![docker常用命令](https://img.mukewang.com/szimg/5cf8b28f00018eae19201080.jpg)
