@@ -24,3 +24,5 @@
 
 + `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
 + `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
+
+然后通过 http://ip:9527/#/ 即可访问RabbitMQ，用上面的root aA111111即可访问RabbitMQ
