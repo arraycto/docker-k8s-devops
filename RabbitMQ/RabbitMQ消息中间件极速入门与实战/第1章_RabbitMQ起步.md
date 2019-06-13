@@ -16,7 +16,7 @@
 
 > 详解见博客 [深入理解AMQP协议](https://blog.csdn.net/weixin_37641832/article/details/83270778)
 
-![AMQP协议模型](https://img3.mukewang.com/5d0243af0001310519201080.jpg)
+![AMQP协议模型](AMQP协议模型.jpg)
 
 ## 安装RabbitMQ(使用Docker安装)
 

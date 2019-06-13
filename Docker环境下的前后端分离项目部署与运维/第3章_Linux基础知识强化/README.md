@@ -7,6 +7,7 @@
 + CentOS7默认安装了firewalld防火墙
 + 利用防火墙，我们可以允许或是限制传输的数据通过，防火墙一般按照端口粒度进行管理
   > 程序<--->防火墙<-->互联网
+
 ### 管理防火墙
 
 + 查看：`firewall-cmd --state`
@@ -29,4 +30,4 @@
 
 ### docker命令
 
-![docker常用命令](https://img.mukewang.com/szimg/5cf8b28f00018eae19201080.jpg)
+![docker常用命令](docker常用命令.jpg)
