@@ -17,3 +17,10 @@
 > 详解见博客 [深入理解AMQP协议](https://blog.csdn.net/weixin_37641832/article/details/83270778)
 
 ![AMQP协议模型](https://img3.mukewang.com/5d0243af0001310519201080.jpg)
+
+## 安装RabbitMQ(使用Docker安装)
+
+`docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=aA111111 rabbitmq:3-management`
+
++ `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
++ `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
