@@ -25,4 +25,6 @@
 + `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
 + `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
 
-然后通过 http://ip:9527/#/ 即可访问RabbitMQ，用上面的**root-aA111111**即可访问RabbitMQ.当不指定用户名和密码时，默认是**guest-guest**
+然后通过 http://ip:9527/#/ 即可访问RabbitMQ，用上面的**root-aA111111**即可访问RabbitMQ的Web界面.当不指定用户名和密码时，默认是**guest-guest**
+
+web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/java-zhao/p/5670453.html)
