@@ -20,7 +20,7 @@
 
 ## 安装RabbitMQ(使用Docker安装)
 
-`docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=aA111111 rabbitmq:3-management`
+> docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 -p 25672:25672 -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=aA111111 rabbitmq:3-management
 
 + `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
 + `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
