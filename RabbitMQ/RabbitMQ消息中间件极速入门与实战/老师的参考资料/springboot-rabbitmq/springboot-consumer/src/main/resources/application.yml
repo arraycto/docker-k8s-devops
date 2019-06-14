@@ -8,10 +8,13 @@ spring:
 ## 消费端配置
     listener:
       simple:
+        # 并发
         concurrency: 5
         ## manual:手动 ack（确认）
         acknowledge-mode: manual
+        # 最大并发
         max-concurrency: 10
+        # 限流
         prefetch: 1
   datasource:
       url: jdbc:mysql://localhost:3306/rabbitmq?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
