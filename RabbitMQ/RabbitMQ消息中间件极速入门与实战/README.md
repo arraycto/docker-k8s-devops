@@ -9,4 +9,7 @@
 + [老师文章](https://www.imooc.com/article/49814)
 + idea生成serialVersionUID的步骤
   > File->setting->Editor-->Inspections->Serializationissues，将其展开后将Serialization issues-->serialzable class without "serialVersionUID"打上勾；然后实体类上有告警，自动修复生成serialVersionUID即可
++ 路由规则的模糊匹配
+  + `order.*`:只可以匹配一个.和一个单词
+  + `order.#`:可以匹配多个.和多个单词
 
