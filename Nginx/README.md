@@ -10,4 +10,10 @@
 
 ## Nginx安装
 
+### 本地安装
+
 见[spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
+
+### Docker安装
+
+![Docker搭建nginx环境](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Jenkins%2BK8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程)
