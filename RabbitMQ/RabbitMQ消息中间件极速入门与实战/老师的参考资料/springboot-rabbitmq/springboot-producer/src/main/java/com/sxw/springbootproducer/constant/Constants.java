@@ -1,5 +1,7 @@
 package com.sxw.springbootproducer.constant;
-
+/**
+* 最好改成枚举
+**/
 public class Constants {
     public static final String ORDER_SENDING = "0"; //发送中
 
