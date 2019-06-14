@@ -1,0 +1,18 @@
+spring:
+  rabbitmq:
+    addresses: 10.162.118.225:5672
+    username: root
+    password: aA111111
+    virtual-host: /
+    connection-timeout: 15000
+    listener:
+      simple:
+        concurrency: 5 # 并发数
+        acknowledge-mode: manual # 手动签收，auto是自动签收
+        max-concurrency: 10 # 最大并发
+        prefetch: 1 # 限流
+
+server:
+  servlet:
+    context-path: /
+  port: 8001
