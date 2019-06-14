@@ -7,3 +7,6 @@
 + 保证100%的消息可靠性投递方案落地
 + [老师代码](https://github.com/suxiongwei/springboot-rabbitmq)
 + [老师文章](https://www.imooc.com/article/49814)
++ idea生成serialVersionUID的步骤
+  > File->setting->Editor-->Inspections->Serializationissues，将其展开后将Serialization issues-->serialzable class without "serialVersionUID"打上勾；然后实体类上有告警，自动修复生成serialVersionUID即可
+
