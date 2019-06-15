@@ -434,7 +434,7 @@ location /images {
 
 重启nginx，通过 "http://ip/images" 可以访问目录，通过 "http://ip/images/图片名" 可以访问图片啦
 
-## 7.反向代码
+## 7.反向代理
 
 ### 7.1 正向代理
 
@@ -499,3 +499,48 @@ location /images {
 
 + 2.配置域名解析
 + 3.访问 [http://tomcat.com](http://tomcat.com)
+
+## 8.负载均衡
+
+### 8.1 概念
+
+将接收到的请求按照一定的规则分发到不同的服务器进行处理，从而提高系统响应和处理速度，称为负载均衡
+
+### 8.2 范例
+
+#### 8.2.1 准备网站(模拟淘宝，后面有多台服务器)
+
+```shell
+#拷贝两个tomcat
+cp -­r apache­tomcat­8.5.30 taobao1
+cp ­-r apache­tomcat­8.5.30 taobao2 #修改tomcat端口
+vi taobao1/conf/server.xml
+vi taobao2/conf/server.xml #修改页面
+vi taobao1/webapps/ROOT/index.jsp
+vi taobao2/webapps/ROOT/index.jsp #启动tomcat
+./startup.sh
+```
+
+#### 8.2.2 创建虚拟主机配置文件，并配置负载均衡
+
+```shell
+cp proxy.conf taobao.conf
+vi taobao.conf
+```
+
+写入如下内容
+
+```nginx
+# 后台服务器列表
+upstream taobao_server{
+    server 192.168.1.66:8081 weight=3; # weight表示权重，权重越高被分配到的几率越大
+    server 192.168.1.66:8082 weight=7;
+}
+server {
+    listen       80;
+    server_name  www.taobao.com;
+    location / {
+        proxy_pass http://taobao_server; # 指定代理的后台服务器
+    }
+}
+```
