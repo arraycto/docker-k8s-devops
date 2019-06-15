@@ -326,3 +326,6 @@ echo welcome to sms > sms/index.html
 192.168.1.59 www.ums.com
 192.168.1.59 www.sms.com
 ```
+
+域名解析的过程：查找hosts文件——>DNS
+注：该方式仅是本地测试时使用的，实际应用中要购买注册域名
