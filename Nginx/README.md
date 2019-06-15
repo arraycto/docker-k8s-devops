@@ -18,6 +18,28 @@
 
 [docker-k8s-devops/Jenkins+K8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Jenkins%2BK8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程)
 
+创建如下目录：
+
+```shell
+[root@heiheihei l00379880]# pwd
+/root/heiheihei
+[root@SZV1000302643 l00379880]# tree nginx
+nginx
+├── conf # 文件夹，存放配置文件
+│   ├── conf.d # 目录，存放自定义的虚拟主机配置文件
+│   │   └── default.conf # 虚拟主机配置，提前把需要的内容写进去，本节有
+│   └── nginx.conf # 主配置，提前把需要的内容写进去，本节有
+├── logs # 存放日志
+└── www # 存放网站
+    └── index.html
+```
+
+然后在nginx目录下执行如下命令，启动nginx
+
+> docker run -d -p 8888:80 --name nginx-test -v $PWD/www:/usr/share/nginx/html -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/conf/conf.d:/etc/nginx/conf.d -v $PWD/logs:/var/log/nginx nginx
+
+
+
 ## 3.Nginx命令
 
 ### 3.1 命令选项
