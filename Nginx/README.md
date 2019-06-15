@@ -511,7 +511,7 @@ location /images {
 #### 8.2.1 准备网站(模拟淘宝，后面有多台服务器)
 
 ```shell
-#拷贝两个tomcat
+# 拷贝两个tomcat，ps:这里自己用容器在不同的VM上启两个
 cp -­r apache­tomcat­8.5.30 taobao1
 cp ­-r apache­tomcat­8.5.30 taobao2 #修改tomcat端口
 vi taobao1/conf/server.xml
