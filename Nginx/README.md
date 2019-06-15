@@ -138,7 +138,119 @@ http {
     # 开启gzip压缩
     #gzip  on;
     
-    # 引入外部配置文件，包含虚拟主机的设置
+    # 引入外部配置文件，包含虚拟主机的设置,下面有讲，其实自定义的配置文件都可以放在这个目录下
     include /etc/nginx/conf.d/*.conf;
+}
+```
+
+### 4.2 自定义配置文件之default.conf
+
+上面的nginx.conf的最后一行配置了会自动引入 **/etc/nginx/conf.d/** 下面的所有conf配置文件，这个目录下默认有的 **/etc/nginx/conf.d/default.conf** 是指**虚拟主机配置文件，可以定义多个虚拟主机配置文件**,默认内容如下
+
+```shell
+server {
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+```
+
+配置详解如下：
+
+```shell
+# 虚拟主机的配置
+server {
+    # 监听端口
+    listen       80;
+    # 服务器域名
+    server_name  localhost;
+    
+    # 网页的默认编码
+    #charset koi8-r;
+    # 访问该虚拟主机的日志位置
+    #access_log  /var/log/nginx/host.access.log  main;
+    
+    # 根据目录配置，nginx对外的访问目录和首页入口
+    location / {
+        # 网站根目录的配置
+        root   /usr/share/nginx/html;
+        # 默认首页
+        index  index.html index.htm;
+    }
+    
+    # 404错误的反馈页面
+    #error_page  404              /404.html;
+    
+    # 50x错误页面的配置
+    # redirect server error pages to the static page /50x.html
+    # 50x错误的反馈页面
+    error_page   500 502 503 504  /50x.html;
+    # 50x错误页面的路径
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    # 
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
 }
 ```
