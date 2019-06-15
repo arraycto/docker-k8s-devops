@@ -203,7 +203,7 @@ http {
     #gzip  on;
     
     # 引入外部配置文件，包含虚拟主机的设置,一个配置文件就是一个虚拟主机。下面有讲，其实自定义的配置文件都可以放在这个目录下
-    include /etc/nginx/conf.d/*.conf;
+    include /usr/local/nginx/conf/conf.d/*.conf;
 }
 ```
 
@@ -293,7 +293,7 @@ echo welcome to sms > sms/index.html
 + 创建ums网站
 
   ```shell
-  cd /etc/nginx/conf.d/
+  cd /usr/local/nginx/conf/conf.d/
   sudo cp default.conf ums.conf
   sudo vi ums.conf
   ```
@@ -349,4 +349,4 @@ echo welcome to sms > sms/index.html
 域名解析的过程：查找hosts文件——>DNS 
 注：该方式仅是本地测试时使用的，实际应用中要购买注册域名
 
-本地访问[ums.huawei.com](ums.huawei.com)和[sms.huawei.com](sms.huawei.com),可以分别看到网页返回`welcome to ums`和`welcome to sms`
+本地访问[ums.huawei.com](http://ums.huawei.com)和[sms.huawei.com](http://sms.huawei.com),可以分别看到网页返回`welcome to ums`和`welcome to sms`
