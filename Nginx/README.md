@@ -14,6 +14,39 @@
 
 见[spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
 
+与下面的课程不同，现在nginx安装完毕，所有的文件都在 **/usr/local/nginx** 下，目录层次如下，下面的教程要酌情适配
+
+```shell
+[root@SZV1000302644 nginx]# pwd
+/usr/local/nginx
+[root@SZV1000302644 nginx]# tree ../nginx
+../nginx
+├── conf
+│   ├── fastcgi.conf
+│   ├── fastcgi.conf.default
+│   ├── fastcgi_params
+│   ├── fastcgi_params.default
+│   ├── koi-utf
+│   ├── koi-win
+│   ├── mime.types
+│   ├── mime.types.default
+│   ├── nginx.conf
+│   ├── nginx.conf.default
+│   ├── scgi_params
+│   ├── scgi_params.default
+│   ├── uwsgi_params
+│   ├── uwsgi_params.default
+│   └── win-utf
+├── html
+│   ├── 50x.html
+│   └── index.html
+├── logs
+└── sbin
+    └── nginx
+
+4 directories, 18 files
+```
+
 ### 2.2 Docker安装
 
 [docker-k8s-devops/Jenkins+K8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Jenkins%2BK8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程)
