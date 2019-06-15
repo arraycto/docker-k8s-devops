@@ -305,8 +305,9 @@ echo welcome to sms > sms/index.html
 
   ```nginx
   server {
-  listen 80;
-  server_name www.ums.com;
+    listen 80;
+    server_name www.ums.com;
+
     location / {
       root /home/soft01/www/ums;
       index index.html index.htm;
@@ -325,6 +326,7 @@ echo welcome to sms > sms/index.html
   server {
     listen 80;
     server_name www.sms.com;
+
     location / {
       root /home/soft01/www/sms;
       index index.html index.htm;
