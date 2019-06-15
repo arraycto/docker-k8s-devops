@@ -544,3 +544,5 @@ server {
     }
 }
 ```
+
+参考文章 [Nginx服务器之负载均衡策略(6种)](https://www.cnblogs.com/1214804270hacker/p/9325150.html)
