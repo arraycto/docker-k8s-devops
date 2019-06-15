@@ -49,6 +49,8 @@
 
 ### 2.2 Docker安装
 
+> nginx生产环境不推荐使用容器，因为经常会因为网络和文件、目录权限出各种坑
+
 [docker-k8s-devops/Jenkins+K8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Jenkins%2BK8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程)
 
 创建如下目录：
