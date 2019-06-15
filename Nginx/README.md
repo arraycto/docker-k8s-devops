@@ -546,3 +546,48 @@ server {
 ```
 
 参考文章 [Nginx服务器之负载均衡策略(6种)](https://www.cnblogs.com/1214804270hacker/p/9325150.html)
+
+## 9.动静分离
+
+### 9.1 简介
+
++ 问题：tomcat在处理静态资源时效率不高，默认情况下所有资源都由tomcat处理，会导致Web应用响应慢，占用系统资源
++ 解决：将静态资源交由Nginx处理，动态资源仍由tomcat处理，实现动静分离，实际上就是把Nginx作为静态资源服务器
+
+### 9.2 配置
+
+#### 9.2.1 编辑taobao.conf，配置动态分离
+
+```shell
+sudo vi /etc/nginx/conf.d/taobao.conf
+```
+
+修改location:
+
+```nginx
+......
+# 处理静态资源
+location ~ .*\.(js|css|ico|png|jpg|eot|svg|ttf|woff) {
+    root /home/soft01/www/static;
+}
+......
+```
+
+#### 9.2.2 创建存放静态资源的文件夹，并将资源资源放到该目录中
+
+```shell
+cd /home/soft01/www
+mkdir static
+cd static
+chmod 777 *
+cd /home/soft01/software/taobao1/webapp/ROOT
+cp tomcat.css tomcat.png /home/soft01/www/static
+```
+
+## 10.高并发的处理
+
++ 负载均衡：集群
++ 动静分离：使用Nginx、CDN
++ 缓存：以空间换时间，提高系统效率
++ 限流：流量控制
++ 降级：服务降载
