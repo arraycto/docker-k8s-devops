@@ -59,7 +59,7 @@ sudo nginx -v #查看版本信息
 
 主配置文件nginx.conf，包含三部分内容：**全局配置**、**工作模式配置**、**HTTP配置**。文件默认内容如下，
 
-```shell
+```nginx
 user  nginx;
 worker_processes  1;
 
@@ -95,7 +95,7 @@ http {
 
 各个字段的解析如下：
 
-```shell
+```nginx
 # 1.全局配置
 # 运行nginx的用户
 user  nginx;
@@ -109,13 +109,13 @@ pid        /var/run/nginx.pid;
 
 # 2.工作模式配置
 events {
-    # 每个进程最大处理的连接数
+    # 每个进程最大处理的连接数.总连接数 = worker_processes(CPU核心数) * worker_connections(单CPU进程的最大连接数)
     worker_connections  1024;
 }
 
 # 3.HTTP配置
 http {
-    # 支持的媒体类型
+    # 支持的媒体类型.支持的全部媒体类型见/etc/nginx/mime.types
     include       /etc/nginx/mime.types;
     # 默认的类型
     default_type  application/octet-stream;
@@ -130,15 +130,16 @@ http {
 
     # 是否调用sendfile函数来输出文件
     sendfile        on;
+    # 是否在一个数据包中发送所有的文件，默认是on
     #tcp_nopush     on;
     
-    # 连接超时时间
+    # 连接超时时间,单位是s，秒
     keepalive_timeout  65;
 
     # 开启gzip压缩
     #gzip  on;
     
-    # 引入外部配置文件，包含虚拟主机的设置,下面有讲，其实自定义的配置文件都可以放在这个目录下
+    # 引入外部配置文件，包含虚拟主机的设置,一个配置文件就是一个虚拟主机。下面有讲，其实自定义的配置文件都可以放在这个目录下
     include /etc/nginx/conf.d/*.conf;
 }
 ```
@@ -147,7 +148,7 @@ http {
 
 上面的nginx.conf的最后一行配置了会自动引入 **/etc/nginx/conf.d/** 下面的所有conf配置文件，这个目录下默认有的 **/etc/nginx/conf.d/default.conf** 是指**虚拟主机配置文件，可以定义多个虚拟主机配置文件**,默认内容如下
 
-```shell
+```nginx
 server {
     listen       80;
     server_name  localhost;
@@ -196,7 +197,7 @@ server {
 
 配置详解如下：
 
-```shell
+```nginx
 # 虚拟主机的配置
 server {
     # 监听端口
