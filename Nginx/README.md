@@ -255,3 +255,74 @@ server {
     #}
 }
 ```
+
+## 5.虚拟主机
+
+> 把一台物理服务器划分为多个虚拟的服务器，称为虚拟主机。每个虚拟主机对应一个Web站点，其实就是在一台服务器上搭建多个网站
+
+### 5.1 准备网站目录及测试页面
+
+```shell
+mkdir www
+cd www
+mkdir ums
+mkdir sms
+echo welcome to ums > ums/index.html
+echo welcome to sms > sms/index.html
+```
+
+### 5.2 创建虚拟主机配置文件并配置
+
++ 创建ums网站
+
+  ```shell
+  cd /etc/nginx/conf.d/
+  sudo cp default.conf ums.conf
+  sudo vi ums.conf
+  ```
+
+  ```nginx
+  server {
+  listen 80;
+  server_name www.ums.com;
+    location / {
+      root /home/soft01/www/ums;
+      index index.html index.htm;
+    }
+  }
+  ```
+
++ 创建sms网站
+
+  ```shell
+  sudo cp default.conf sms.conf
+  sudo vi sms.conf
+  ```
+
+  ```nginx
+  server {
+    listen 80;
+    server_name www.sms.com;
+    location / {
+      root /home/soft01/www/sms;
+      index index.html index.htm;
+    }
+  }
+  ```
+  
+### 5.3 实现虚拟主机的三种方式
+
++ 基于不同的IP
++ 基于不同的端口
++ 基于不同的域名
+
+### 5.4 配置域名解析
+
+在客户端主机中配置域名解析
++ windows：C:\Windows\System32\drivers\etc\hosts
++ Linux/Mac：/etc/hosts
+
+```hosts
+192.168.1.59 www.ums.com
+192.168.1.59 www.sms.com
+```
