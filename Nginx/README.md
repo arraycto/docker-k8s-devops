@@ -17,9 +17,9 @@
 与下面的课程不同，现在nginx安装完毕，所有的文件都在 **/usr/local/nginx** 下，目录层次如下，下面的教程要**酌情适配**
 
 ```shell
-[root@SZV1000302644 nginx]# pwd
+[root@heiheihei nginx]# pwd
 /usr/local/nginx
-[root@SZV1000302644 nginx]# tree ../nginx
+[root@heiheihei nginx]# tree ../nginx
 ../nginx
 ├── conf
 │   ├── fastcgi.conf
@@ -56,7 +56,7 @@
 ```shell
 [root@heiheihei l00379880]# pwd
 /root/heiheihei
-[root@SZV1000302643 l00379880]# tree nginx
+[root@heiheihei l00379880]# tree nginx
 nginx
 ├── conf # 文件夹，存放配置文件
 │   ├── conf.d # 目录，存放自定义的虚拟主机配置文件
@@ -78,7 +78,7 @@ nginx
 ### 3.1 命令选项
 
 ```shell
-root@cb063dc3f022:/# nginx -h
+root@heiheihei:/# nginx -h
 nginx version: nginx/1.17.0
 Usage: nginx [-?hvVtTq] [-s signal] [-c filename] [-p prefix] [-g directives]
 
@@ -233,29 +233,6 @@ server {
     location = /50x.html {
         root   html;
     }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-
-    # deny access to .htaccess files, if Apache's document root
-    # concurs with nginx's one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
 }
 ```
 
@@ -272,7 +249,7 @@ server {
     # 网页的默认编码
     #charset koi8-r;
     # 访问该虚拟主机的日志位置
-    #access_log  /var/log/nginx/host.access.log  main;
+    #access_log  logs/host.access.log  main;
 
     # 根据目录配置，nginx对外的访问目录和首页入口
     location / {
