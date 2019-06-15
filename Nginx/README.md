@@ -353,3 +353,83 @@ echo welcome to sms > sms/index.html
 注：该方式仅是本地测试时使用的，实际应用中要购买注册域名
 
 本地访问[ums.huawei.com](http://ums.huawei.com)和[sms.huawei.com](http://sms.huawei.com),可以分别看到网页返回`welcome to ums`和`welcome to sms`
+
+## 6.nginx作为图片服务器
+
+### 6.1 创建需要的目录,并把图片上传上去
+
+```shell
+[root@heiheihei nginx]# pwd
+/root/l00379880/nginx
+[root@heiheihei nginx]# tree images -h
+images
+└── [ 18K]  girl.png
+
+0 directories, 1 file
+```
+
+### 6.2 配置default.conf
+
+```shell
+[root@SZV1000302644 conf.d]# ls
+default.conf  sms.conf  ums.conf
+[root@SZV1000302644 conf.d]# pwd
+/usr/local/nginx/conf/conf.d
+[root@SZV1000302644 conf.d]# cat default.conf
+```
+
+可看到添加图片服务器后的default.conf内容如下：
+
+```nginx
+server {
+    # 监听端口
+    listen       80;
+    # 服务器域名
+    server_name  localhost;
+
+    # 网页的默认编码
+    #charset koi8-r;
+    # 访问该虚拟主机的日志位置
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    # 根据目录配置，nginx对外的访问目录和首页入口
+    location / {
+        # 网站根目录的配置
+        root   /usr/local/nginx/html;
+        # 默认首页
+        index  index.html index.htm;
+    }
+
+    # 图床配置
+    location /images {
+        # 一定注意这个目录是images的上一层，这样才能通过"http://ip/images"来访问目录合图片
+        root /root/l00379880/nginx;
+        autoindex on;
+    }
+
+    # 404错误的反馈页面
+    #error_page  404              /404.html;
+
+    # 50x错误页面的配置
+    # redirect server error pages to the static page /50x.html
+    # 50x错误的反馈页面
+    error_page   500 502 503 504  /50x.html;
+    # 50x错误页面的路径
+    location = /50x.html {
+        root   /usr/local/nginx/html;
+    }
+}
+```
+
+核心添加地是如下部分：
+
+```nginx
+# 图床配置
+location /images {
+    # 一定注意这个目录是images的上一层，这样才能通过"http://ip/images"来访问目录合图片
+    root /root/l00379880/nginx;
+    autoindex on;
+}
+```
+
+重启nginx，通过 "http://ip/images" 可以访问目录，通过 "http://ip/images/图片名" 可以访问图片啦
