@@ -74,8 +74,6 @@ nginx
 
 > docker run -d -p 8888:80 --name nginx-test -v $PWD/www:/usr/share/nginx/html -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/conf/conf.d:/etc/nginx/conf.d -v $PWD/logs:/var/log/nginx nginx
 
-
-
 ## 3.Nginx命令
 
 ### 3.1 命令选项
@@ -190,7 +188,7 @@ http {
     #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
     #                  '$status $body_bytes_sent "$http_referer" '
     #                  '"$http_user_agent" "$http_x_forwarded_for"';
-    
+
     # 访问日志文件的位置
     #access_log  logs/access.log  main;
 
@@ -198,13 +196,13 @@ http {
     sendfile        on;
     # 是否在一个数据包中发送所有的文件，默认是on
     #tcp_nopush     on;
-    
+
     # 连接超时时间,单位是s，秒
     keepalive_timeout  65;
 
     # 开启gzip压缩
     #gzip  on;
-    
+
     # 引入外部配置文件，包含虚拟主机的设置,一个配置文件就是一个虚拟主机。下面有讲，其实自定义的配置文件都可以放在这个目录下
     include /usr/local/nginx/conf/conf.d/*.conf;
 }
@@ -341,6 +339,7 @@ echo welcome to sms > sms/index.html
 ### 5.4 配置域名解析
 
 在客户端主机中配置域名解析
+
 + windows：C:\Windows\System32\drivers\etc\hosts
 + Linux/Mac：/etc/hosts
 
@@ -349,7 +348,7 @@ echo welcome to sms > sms/index.html
 10.162.119.133 sms.huawei.com
 ```
 
-域名解析的过程：查找hosts文件——>DNS 
+域名解析的过程：查找hosts文件——>DNS  
 注：该方式仅是本地测试时使用的，实际应用中要购买注册域名
 
 本地访问[ums.huawei.com](http://ums.huawei.com)和[sms.huawei.com](http://sms.huawei.com),可以分别看到网页返回`welcome to ums`和`welcome to sms`
