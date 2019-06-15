@@ -119,9 +119,9 @@ Remove one or more images
 + `-v ~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf`：将我们自己创建的 nginx.conf 挂载到容器的 /etc/nginx/nginx.conf。
 + `-v ~/nginx/logs:/var/log/nginx`：将我们自己创建的 logs 挂载到容器的 /var/log/nginx。
 
-默认的nginx.conf的内容如下：
+**默认的nginx.conf的内容如下**：
 
-```xml
+```nginx
 
 user  nginx;
 worker_processes  1;
