@@ -4,7 +4,8 @@
 
 ## 1.常用链接
 
-+ [nginx下载](https://github.com/nginx/nginx/releases) 
++ [nginx官方稳定版本下载](http://nginx.org/en/download.html)
++ [nginx全版本下载](https://github.com/nginx/nginx/releases) 
 + [nginx官网](http://nginx.org)
 + [nginx中文网](http://www.nginx.cn/doc/)
 
@@ -49,7 +50,7 @@
 
 ### 2.2 Docker安装
 
-> nginx生产环境不推荐使用容器，因为经常会因为网络和文件、目录权限出各种坑
+> :cn:**nginx生产环境不推荐使用容器，因为经常会因为网络和文件、目录权限出各种坑**
 
 [docker-k8s-devops/Jenkins+K8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Jenkins%2BK8s实现持续集成/第2章_docker基本使用.md#1搭建nginx-参考教程)
 
