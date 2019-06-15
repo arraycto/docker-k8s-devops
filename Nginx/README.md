@@ -468,3 +468,34 @@ location /images {
 ### 7.2.3 图示
 
 ![反向代理](images/反向代理.png)
+
+### 7.2.4 范例
+
+使用Nginx作为其他服务器的反向代理
+
++ 1. 创建虚拟主机配置文件，并配置反向代理
+
+  ```shell
+  cd /usr/local/nginx/conf/conf.d
+  cp default.conf proxy.conf
+  vi proxy.conf
+  ```
+
+  写入如下内容
+
+  ```nginx
+  # 后台服务器列表
+  upstream tomcat_server {
+      server 192.168.1.66:8080;
+  }
+  server {
+      listen       80;
+      server_name  www.tomcat.com;
+      location / {
+          proxy_pass http://tomcat_server; # 指定代理的后台服务器
+      }
+  }
+  ```
+
++ 2. 配置域名解析
++ 3. 访问 [http://tomcat.com/](http://tomcat.com/)
