@@ -102,5 +102,5 @@ while true {
 
 ## 2.8 Nginx的目录、配置语法和安装目录
 
-> 这部分可以见之前学过的[nginx快速入门课程](../../nginx快速入门/README.md)
+> 这部分可以见之前学过的[nginx快速入门课程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md)
 
