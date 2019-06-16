@@ -80,10 +80,13 @@ while true {
 
 + 解决了`select`模型对于文件句柄fd的打开限制
 + 采用callback函数回调机制优化模型效率
-+ CPU亲和
++ **CPU亲和**
   > **CPU亲和**：把CPU的核心和ngnix工作进程绑定，把每个worker进程固定在一个CPU上执行，减少切换CPU的cache miss，获得更好的性能,在nginx.conf中通过`work_process`来设置
   + cache 高速缓冲存储器
   + cache miss 容量缺失
   + 容量缺失：因cache容量限制而导致cache set个数限制
     > 如：一个程序要请求的3个数据在不同的set中，而cache只有两个set，这样必定会发生cache miss
   ![CPU亲和](https://img.mukewang.com/szimg/5d05f91e0001547d19201080.jpg)
++ sendfile: sendfile静态文件直接通过内核空间，不经过用户空间传输，提高传输效率。在nginx.conf中可通过`sendfile on;`来开启
+  ![sendfile机制](https://img.mukewang.com/szimg/5d0600a20001d2e019201080.jpg)
+  
