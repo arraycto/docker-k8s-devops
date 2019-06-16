@@ -95,6 +95,12 @@ while true {
 > 见[spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
 
 [官网地址](http://nginx.org/en/download.html)，里面的版本分类如下：
+
 + Mainline version -开发版
 + Stable version -稳定版
 + Legacy version -历史版本
+
+## 2.8 Nginx的目录、配置语法和安装目录
+
+> 这部分可以见之前学过的[nginx快速入门课程](../../nginx快速入门/README.md)
+

@@ -19,10 +19,10 @@
 
 ```shell
 [root@heiheihei nginx]# pwd
-/usr/local/nginx
+/usr/local/nginx # 安装的根目录
 [root@heiheihei nginx]# tree ../nginx
 ../nginx
-├── conf
+├── conf # 配置目录
 │   ├── fastcgi.conf
 │   ├── fastcgi.conf.default
 │   ├── fastcgi_params
@@ -31,18 +31,18 @@
 │   ├── koi-win
 │   ├── mime.types
 │   ├── mime.types.default
-│   ├── nginx.conf
+│   ├── nginx.conf # 主配置文件
 │   ├── nginx.conf.default
 │   ├── scgi_params
 │   ├── scgi_params.default
 │   ├── uwsgi_params
 │   ├── uwsgi_params.default
 │   └── win-utf
-├── html
+├── html # 项目的前端文件
 │   ├── 50x.html
 │   └── index.html
-├── logs
-└── sbin
+├── logs # 日志文件
+└── sbin # 可执行文件
     └── nginx
 
 4 directories, 18 files
