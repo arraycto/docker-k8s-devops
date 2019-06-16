@@ -23,27 +23,28 @@
 [root@heiheihei nginx]# tree ../nginx
 ../nginx
 ├── conf # 配置目录
-│   ├── fastcgi.conf
-│   ├── fastcgi.conf.default
-│   ├── fastcgi_params
-│   ├── fastcgi_params.default
-│   ├── koi-utf
-│   ├── koi-win
-│   ├── mime.types
-│   ├── mime.types.default
+|   ├── conf.d # 自定义虚拟主机配置，需要自己创建，里面含有一个default.conf，下面有讲
+│   ├── fastcgi.conf # fastcgi配置
+│   ├── fastcgi.conf.default # fastcgi默认配置
+│   ├── fastcgi_params # fastcgi参数
+│   ├── fastcgi_params.default # fastcgi参数备份
+│   ├── koi-utf # 编码转换映射转化文件
+│   ├── koi-win # 编码转换映射转化文件
+│   ├── mime.types # 设置http协议的Content-Type与扩展名对应关系
+│   ├── mime.types.default # 上面文件的备份
 │   ├── nginx.conf # 主配置文件
-│   ├── nginx.conf.default
-│   ├── scgi_params
-│   ├── scgi_params.default
-│   ├── uwsgi_params
-│   ├── uwsgi_params.default
-│   └── win-utf
+│   ├── nginx.conf.default # 主配置文件备份
+│   ├── scgi_params # scgi参数
+│   ├── scgi_params.default # scgi参数备份
+│   ├── uwsgi_params # uwsgi参数
+│   ├── uwsgi_params.default # uwsgi参数备份
+│   └── win-utf # 编码转换映射转化文件
 ├── html # 项目的前端文件
-│   ├── 50x.html
-│   └── index.html
+│   ├── 50x.html # 访问出错时重定向的错误页面
+│   └── index.html # 访问的首页
 ├── logs # 日志文件
 └── sbin # 可执行文件
-    └── nginx
+    └── nginx # nginx的可执行文件，所有nginx命令都在这执行
 
 4 directories, 18 files
 ```
