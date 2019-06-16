@@ -90,3 +90,11 @@ while true {
 + sendfile: sendfile静态文件直接通过内核空间，不经过用户空间传输，提高传输效率。在nginx.conf中可通过`sendfile on;`来开启
   ![sendfile机制](https://img.mukewang.com/szimg/5d0600a20001d2e019201080.jpg)
   
+## 2.7 nginx的安装
+
+> 见[spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
+
+[官网地址](http://nginx.org/en/download.html)，里面的版本分类如下：
++ Mainline version -开发版
++ Stable version -稳定版
++ Legacy version -历史版本
