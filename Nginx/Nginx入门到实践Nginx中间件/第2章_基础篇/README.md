@@ -36,6 +36,8 @@ Nginx是一个开源且高性能、可靠的HTTP中间件、代理服务，支�
 
 ### 2.4.1 实现IO流非阻塞模式
 
+> 流阻塞的伪代码如下
+
 ```c
 while true {
   for i in stream[] {
@@ -58,6 +60,8 @@ while true {
 
 #### select模型
 
+> 伪代码如下
+
 ```c
 while true {
   select(streams[]){ // 通过select来选取streams中有数据的来进行操作，避免流中没有数据时浪费CPU
@@ -71,3 +75,8 @@ while true {
 ```
 
 **`select`和`epoll`其实都相当于一个代理**
+
+### 2.4.3 epoll模型的优势
+
++ 解决了`select`模型对于文件句柄fd的打开限制
++ 采用callback函数回调机制优化模型效率
