@@ -85,18 +85,21 @@
 > 操作系统是CentOS7.2 安装教程可以参考 [spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
 
 + 1、两项安装
+
   ```shell
-  yum -y install gcc gcc-c++ autoconf pcre pcre-devel make automake 
+  yum -y install gcc gcc-c++ autoconf pcre pcre-devel make automake
   yum -y install wget httpd-tools vim
   ```
 
 + 2、创建文件夹
+
   ```shell
   cd /opt
   mkdir app download logs work backup
   ```
 
 + 3、关闭iptables
+
   ```shell
   iptables -L # 查看
   iptables -F # 关闭
@@ -104,11 +107,11 @@
   iptables -t nat -L
   iptables -t nat -F
   ```
+
 + 4、停用selinux
+  
   ```shell
   getenforce  
   # 如果不是Disabled
   setenforce 0
   ```
-
-
