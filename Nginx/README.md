@@ -586,7 +586,7 @@ cp tomcat.css tomcat.png /home/soft01/www/static
 ## 10.高并发的处理
 
 + 负载均衡：集群
-+ 动静分离：使用Nginx、CDN
++ 动静分离：使用Nginx、CDN(Content Delivery Network 内容分发网络)
 + 缓存：以空间换时间，提高系统效率
 + 限流：流量控制
 + 降级：服务降载
