@@ -100,7 +100,8 @@ while true {
 + Stable version -稳定版
 + Legacy version -历史版本
 
-## 2.8 Nginx的目录、配置语法和安装目录
+## 2.8~2-10 安装参数和配置文件详解
 
 > 这部分可以见之前学过的[nginx快速入门课程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md)
 
+## 
