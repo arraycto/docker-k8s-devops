@@ -100,8 +100,7 @@ while true {
 + Stable version -稳定版
 + Legacy version -历史版本
 
-## 2.8~2-10 安装参数和配置文件详解
+## 2-8_2-12 安装参数、配置文件、虚拟主机等
 
 > 这部分可以见之前学过的[nginx快速入门课程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md)
 
-## 
