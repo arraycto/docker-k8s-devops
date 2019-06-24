@@ -122,9 +122,10 @@ sudo nginx -v #查看版本信息
 user  root;
 worker_processes  1;
 
-#error_log  logs/error.log;
-#error_log  logs/error.log  notice;
-#error_log  logs/error.log  info;
+# error.log处理的是处理服务的错误状态
+# error_log  logs/error.log;
+# error_log  logs/error.log  notice;
+# error_log  logs/error.log  info;
 
 #pid        logs/nginx.pid;
 
@@ -138,11 +139,13 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+    # 错误日志文件的位置和输出级别
+    # log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                   '$status $body_bytes_sent "$http_referer" '
+    #                   '"$http_user_agent" "$http_x_forwarded_for"';
 
-    #access_log  logs/access.log  main;
+    # access_log记录的是http请求的访问状态，依赖于log_format配置。
+    # access_log  logs/access.log  main;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -192,8 +195,8 @@ http {
     #                  '$status $body_bytes_sent "$http_referer" '
     #                  '"$http_user_agent" "$http_x_forwarded_for"';
 
-    # 访问日志文件的位置
-    #access_log  logs/access.log  main;
+    # 访问日志文件的位置，http请求的访问状态
+    # access_log  logs/access.log  main;
 
     # 是否调用sendfile函数来输出文件
     sendfile        on;
@@ -222,7 +225,8 @@ server {
 
     #charset koi8-r;
 
-    #access_log  logs/host.access.log  main;
+    # http请求的访问状态
+    # access_log  logs/host.access.log  main;
 
     location / {
         root   html;
@@ -252,7 +256,7 @@ server {
 
     # 网页的默认编码
     #charset koi8-r;
-    # 访问该虚拟主机的日志位置
+    # 访问该虚拟主机的日志位置,http请求的访问状态
     #access_log  logs/host.access.log  main;
 
     # 根据目录配置，nginx对外的访问目录和首页入口
@@ -390,9 +394,9 @@ server {
     server_name  localhost;
 
     # 网页的默认编码
-    #charset koi8-r;
+    # charset koi8-r;
     # 访问该虚拟主机的日志位置
-    #access_log  /var/log/nginx/host.access.log  main;
+    # access_log  /var/log/nginx/host.access.log  main;
 
     # 根据目录配置，nginx对外的访问目录和首页入口
     location / {

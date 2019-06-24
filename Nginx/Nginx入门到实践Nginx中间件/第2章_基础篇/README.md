@@ -100,7 +100,11 @@ while true {
 + Stable version -稳定版
 + Legacy version -历史版本
 
-## 2-8_2-12 安装参数、配置文件、虚拟主机等
+## 2-8_2-16 安装参数、配置文件、虚拟主机三种方式等
 
 > 这部分可以见之前学过的[nginx快速入门课程](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md)
 
+## 2-17~2-18 Nginx日志
+
++ `error.log`:处理的是处理服务的错误状态
++ `access_log`:记录的是http请求的访问状态，依赖于log_format配置。
