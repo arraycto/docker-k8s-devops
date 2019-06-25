@@ -9,7 +9,7 @@
 + centos下：`yum install -y nginx`
 + docker:`docker run -d -p 80:80 nginx`
 
-手动安装完毕，执行`nginx -V`可以看到详细的配置信息
+手动安装完毕，执行`nginx -V`可以看到详细的配置信息(容器需要先用`docker exec -it 容器id /bin/bash`进去)
 
 ```shell
 configure arguments: --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --http-client-body-temp-path=/var/lib/nginx/tmp/client_body --http-proxy-temp-path=/var/lib/nginx/tmp/proxy --http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi --http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi --http-scgi-temp-path=/var/lib/nginx/tmp/scgi --pid-path=/run/nginx.pid --lock-path=/run/lock/subsys/nginx --user=nginx --group=nginx --with-file-aio --with-ipv6 --with-http_auth_request_module --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_xslt_module=dynamic --with-http_image_filter_module=dynamic --with-http_geoip_module=dynamic --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_degradation_module --with-http_slice_module --with-http_stub_status_module --with-http_perl_module=dynamic --with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream=dynamic --with-stream_ssl_module --with-google_perftools_module --with-debug --with-cc-opt='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -m64 -mtune=generic' --with-ld-opt='-Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-E'
@@ -23,7 +23,7 @@ configure arguments: --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --mod
 --modules-path=/usr/lib64/nginx/modules # nginx的官方标准模块和和第三方模块的存放地址
 --conf-path=/etc/nginx/nginx.conf # nginx的主配置文件地址
 --error-log-path=/var/log/nginx/error.log # 服务的错误状态日志
---http-log-path=/var/log/nginx/access.log # http请求的访问状态 
+--http-log-path=/var/log/nginx/access.log # http请求的访问状态日志
 ```
 
 ## 3.官方安装包手动安装
@@ -81,8 +81,9 @@ cd nginx-1.12.0/ # 然后执行下面的命令即可
 4 directories, 18 files
 ```
 
+## 总结
 
-总之上面的两种安装方式本质都是一样的，就是安装文件存放位置不同，自己要根据情况酌情判断，更多的可以参考如下自己的github
+> 总之上面的两种安装方式本质都是一样的，就是安装文件存放位置不同，自己要根据情况酌情判断，更多的可以参考如下自己的github
 
 + [Nginx快速入门](tttps://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md#2nginx安装)
 + [spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
