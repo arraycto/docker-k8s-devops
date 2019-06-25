@@ -4,7 +4,7 @@
 + 2.docker安装
 + 3.[官方安装包](http://nginx.org/en/download.html)安装
 
-## 1&2.yum或者docker安装nginx
+## 1&2.yum和docker安装nginx
 
 + centos下：`yum install -y nginx`
 + docker:`docker run -d -p 80:80 nginx`
@@ -85,6 +85,6 @@ cd nginx-1.12.0/ # 然后执行下面的命令即可
 
 > 总之上面的两种安装方式本质都是一样的，就是安装文件存放位置不同，自己要根据情况酌情判断，更多的可以参考如下自己的github
 
-+ [Nginx快速入门](tttps://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md#2nginx安装)
++ [Nginx快速入门](https://github.com/19920625lsg/docker-k8s-devops/blob/master/Nginx/Nginx快速入门/README.md#2nginx安装)
 + [spring-boot-online-exam/backend/README.md#7配置nginx](https://github.com/19920625lsg/spring-boot-online-exam/blob/master/backend/README.md#7配置nginx)
   
