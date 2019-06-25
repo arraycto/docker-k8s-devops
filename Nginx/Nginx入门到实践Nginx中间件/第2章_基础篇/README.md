@@ -118,7 +118,17 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                   '"$http_user_agent" "$http_x_forwarded_for"';
 ```
 
-更多Nginx日志和内置变量见 
+nginx默认log_format内容：
+
++ `remote_addr`:客户端地址
++ `remote_user`:http客户端请求认证的用户名，没有开启认证模块不会记录
++ `request`:request请求行
++ `status`:response返回的状态
++ `http_referer`: 上一级访问的url
++ `http_user_agent`: 客户端访问工具是什么,请求体里叫`User-Agent`，到这里要加个`http_`，然后小写、中划线改为下划线
++ `http_x_forwarded_for`: 记录每一级用户通过http请求携带的信息
+
+更多Nginx日志和内置变量见
 
 + [官网Embeded Variables](http://nginx.org/en/docs/varindex.html)
 + [Nginx内置变量以及日志格式变量参数详解](https://www.cnblogs.com/wajika/p/6426270.html)
