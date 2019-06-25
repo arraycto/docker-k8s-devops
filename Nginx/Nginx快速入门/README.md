@@ -17,7 +17,7 @@
 
 安装完毕，通过`ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx`来创建软链接，从而可以全局使用nginx
 
-与下面的课程不同，现在nginx安装完毕，所有的文件都在 **/usr/local/nginx** 下，目录层次如下，下面的教程要**酌情适配**
+现在手动nginx安装完毕，所有的文件都在 **/usr/local/nginx** 下，目录层次如下，下面的教程要**酌情适配**
 
 ```shell
 [root@heiheihei nginx]# pwd
