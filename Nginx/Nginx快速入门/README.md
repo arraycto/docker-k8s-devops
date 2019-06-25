@@ -190,12 +190,12 @@ http {
     # 默认的类型
     default_type  application/octet-stream;
 
-    # 日志格式
+    # 日志格式,$xxxx是nginx的系统变量
     #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
     #                  '$status $body_bytes_sent "$http_referer" '
     #                  '"$http_user_agent" "$http_x_forwarded_for"';
 
-    # 访问日志文件的位置，http请求的访问状态
+    # 访问日志文件的位置，http请求的访问状态，这个main必须和上面log_format里的对应相同
     # access_log  logs/access.log  main;
 
     # 是否调用sendfile函数来输出文件
