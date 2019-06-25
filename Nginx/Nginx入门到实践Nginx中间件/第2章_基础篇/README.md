@@ -195,3 +195,5 @@ $sent_http_last_modified
 $sent_http_location
 $sent_http_transfer_encoding
 ```
+
+## 2-19~2-23 Nginx模块讲解
