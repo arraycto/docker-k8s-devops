@@ -31,7 +31,8 @@ configure arguments: --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --mod
 ### 主配置文件`/etc/nginx/nginx.conf`默认内容，含解析
 
 ```nginx
-user  nginx;
+# 运行root的用户(可以赋予最高权限，不会出现403 Forbidden的情况)
+user  root;
 worker_processes  1;
 
 error_log  /var/log/nginx/error.log warn;

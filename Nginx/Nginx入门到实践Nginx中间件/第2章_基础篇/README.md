@@ -199,6 +199,7 @@ $sent_http_transfer_encoding
 ## 2-19~2-23 Nginx模块讲解
 
 nginx模块分
+
 + 官方模块
 + 第三方模块
 
@@ -247,11 +248,11 @@ configure arguments:
 --with-http_mp4_module
 --with-http_gunzip_module
 --with-http_gzip_static_module
---with-http_random_index_module
+--with-http_random_index_module # 2.从目录中随机选择一个主页
 --with-http_secure_link_module
 --with-http_degradation_module
 --with-http_slice_module
---with-http_stub_status_module
+--with-http_stub_status_module # 1.nginx的客户端连接状态信息
 --with-http_perl_module=dynamic
 --with-mail=dynamic
 --with-mail_ssl_module
@@ -265,4 +266,44 @@ configure arguments:
 --with-ld-opt='-Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-E'
 ```
 
+### 1.stub_status
 
++ `--with-http_stub_status_module`:监听客户端的连接状态
++ 对应模块名：stub_status，具体使用方式
+  + 语法：`stub_ststus;`
+  + 默认：`---`
+  + 作用域：server、location
++ 使用范例
+
+  ```nginx
+  # /etc/nginx/conf.d/default.conf
+  server {
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+    location /mystatus {
+        stub_status;
+    }
+    ......
+  }
+  ```
+
+  配置完毕，`nginx -s reload`，然后访问：`http://ip/mystatus`,可以得到如下信息：
+
+  ```shell
+  Active connections: 3 //nginx活跃的连接
+  server accepts handled requests
+  5 5 5 //分别是握手数、处理的连接数、总的请求数，一般情况下前两个要相同，代表没有丢失
+  Reading: 0 Writing: 1 Waiting: 2 //正读的个数，正在向nginx写的个数，等待的客户端数量
+  ```
+
+### 2.random_index
+
+> --with-http_random_index_module # 2.从目录中随机选择一个主页
+
++ 模块名：random_index，具体使用方式：
+  + 语法：`random_index on 或 off`
+  + 默认：`random_index off`
+  + 作用域：location
