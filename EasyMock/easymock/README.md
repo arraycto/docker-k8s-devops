@@ -4,9 +4,9 @@
 
 ```shell
 easymock
-├── data 
+├── data
 │   ├── db # mongodb映射路径
-│   └── redis
+│   └── redis # redis映射路径
 ├── docker-compose.yml # docker-compose up -d执行入口
 ├── logs # 网站日志
 └── production.json # 网站的配置文件，官方仓库的default.json
