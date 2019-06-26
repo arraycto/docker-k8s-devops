@@ -21,7 +21,7 @@ easymock
 > 参考博文： https://www.jianshu.com/p/6f9ce31b9aa7
 
 + [下载可执行文件docker-compose-Linux-x86_64](https://github.com/docker/compose/releases/download/1.24.1/docker-compose-Linux-x86_64)
-+ 上面到/usr/local/bin/目录下并改名
++ 上传`docker-compose-Linux-x86_64`到 **/usr/local/bin/** 目录下并改名,然后赋予可执行权限
 
   ```shell
   cd  /usr/local/bin
