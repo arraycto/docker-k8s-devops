@@ -242,7 +242,7 @@ configure arguments:
 --with-http_xslt_module=dynamic
 --with-http_image_filter_module=dynamic
 --with-http_geoip_module=dynamic
---with-http_sub_module
+--with-http_sub_module # HTTP内容替换
 --with-http_dav_module
 --with-http_flv_module
 --with-http_mp4_module
@@ -266,7 +266,7 @@ configure arguments:
 --with-ld-opt='-Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-E'
 ```
 
-### 1.stub_status
+### 1.stub_status 监听客户端的连接状态
 
 + `--with-http_stub_status_module`:监听客户端的连接状态
 + 对应模块名：stub_status，具体使用方式
@@ -299,11 +299,32 @@ configure arguments:
   Reading: 0 Writing: 1 Waiting: 2 //正读的个数，正在向nginx写的个数，等待的客户端数量
   ```
 
-### 2.random_index
+### 2.random_index 从目录中随机选择一个主页
 
-> --with-http_random_index_module # 2.从目录中随机选择一个主页
+> --with-http_random_index_module # 从目录中随机选择一个主页
 
 + 模块名：random_index，具体使用方式：
   + 语法：`random_index on 或 off`
   + 默认：`random_index off`
   + 作用域：location
+
++ 注意
+  + 目录下以`.`开头的文件不会被访问到
+
+### 3.sub HTTP内容替换
+
+> --with-http_sub_module # HTTP内容替换
+
++ 使用方法
+  + sub_filter
+    + 语法：`sub_filter string replacement;`
+    + 默认: 无
+    + 作用域：`http`、`server`、`location`
+  + sub_filter_last_modified
+    + 语法：`sub_filter_last_modified on | off;`
+    + 默认: `wub_filter_last_modified off;`
+    + 作用域：`http`、`server`、`location`
+  + sub_filter_once
+    + 语法：sub_filter_once on|off;
+    + 默认：sub_filter_once on;
+    + 作用域：`http`、`server`、`location`
