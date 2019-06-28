@@ -1,0 +1,23 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: sm1234-article
+  datasource:
+    url: jdbc:mysql://192.168.66.138:3306/docker?characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.66.138:7000/eureka
+  instance:
+    prefer-ip-address: true
+    #instance-id: article.com  如果需要在eureka注册多个服务，不能写死instance-id
