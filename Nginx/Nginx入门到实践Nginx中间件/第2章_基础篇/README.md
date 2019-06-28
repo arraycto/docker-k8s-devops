@@ -331,3 +331,9 @@ configure arguments:
     + 语法：sub_filter_once on|off;
     + 默认：sub_filter_once on;
     + 作用域：`http`、`server`、`location`
+
+### 4.连接限制
+
+#### 4.1 连接频率限制 limit_conn_module
+
+#### 4.2 请求频率限制 limit_req_module
