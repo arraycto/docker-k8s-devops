@@ -1,4 +1,4 @@
-FROM jdk1.8
+FROM java:8-alpine
 VOLUME /tmp
 ADD app.jar /app.jar
 EXPOSE 9001
