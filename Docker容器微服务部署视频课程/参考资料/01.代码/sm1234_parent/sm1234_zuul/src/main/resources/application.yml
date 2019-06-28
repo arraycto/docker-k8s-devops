@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: sm1234-zuul
+zuul:
+  routes:
+    app:
+      path: /app/*
+      serviceId: sm1234-article
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.66.138:7000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: zuul.com
