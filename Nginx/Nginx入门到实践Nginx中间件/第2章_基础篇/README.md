@@ -317,14 +317,17 @@ configure arguments:
 
 + 使用方法
   + sub_filter
+    + 功能：把字符串string替换成replacement
     + 语法：`sub_filter string replacement;`
-    + 默认: 无
+    + 默认: --
     + 作用域：`http`、`server`、`location`
   + sub_filter_last_modified
+    + 功能：判断是否有更新,有更新就给客户端返回最新的资源，没更新就用缓存，节省流量
     + 语法：`sub_filter_last_modified on | off;`
     + 默认: `wub_filter_last_modified off;`
     + 作用域：`http`、`server`、`location`
   + sub_filter_once
+    + 作用：默认是开启（on）只替换一个，改为off的话，所有需要替换的都会被替换掉
     + 语法：sub_filter_once on|off;
     + 默认：sub_filter_once on;
     + 作用域：`http`、`server`、`location`
