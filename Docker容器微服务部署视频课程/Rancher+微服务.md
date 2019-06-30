@@ -9,13 +9,24 @@
 ## 安装
 
 + 内嵌数据库：`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`
-+ 外接数据库：`docker run -d --restart=unless-stopped -p 8080:8080 rancher/server --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle`
++ 外接数据库：`docker run -d --restart=unless-stopped -p 8080:8080 rancher/server --db-host 122.112.151.149 --db-port 3306 --db-user root --db-pass aA111111 --db-name cattle`
 
 ## 常见问题和注意事项
 
-### 1.外接数据库时的命令必须根据上面教程里的适配自己的用户名和密码，要不连不上数据库地
+### 1.外接数据库时的命令必须根据上面教程里的适配自己客户端的用户名和密码，要不连不上数据库地
+
+> 最好设置成和数据库server一样的用户名和密码
 
 ![Rancher外接数据库注意事项](images/Rancher外接数据库注意事项.png)
 
 ### 2.想让启动的微服务实例能在内网内访问，网络必须选择"主机"而不是默认的"托管"
 
+![主机而不是托管](images/主机而不是托管.png)
+
+### 3.要是想指定ip调度，需要先给资源添加调度IP，然后再创建服务时指定ip调度
+
+![添加调度IP_1](images/添加调度IP_1.png)
+
+![添加调度IP_2](images/添加调度IP_2.png)
+
+![添加调度IP_3](images/添加调度IP_3.png)
