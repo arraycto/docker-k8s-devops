@@ -2,7 +2,7 @@
 
 ## 常见的mysql集群方案
 
-+ **Replication**：速度快弱一致性低价值适合保存日志新闻和帖子
++ **Replication**：速度快、弱一致性、低价值、适合保存日志新闻和帖子
 + **PXC**：Percona XtraDB Cluster,速度慢，强一致性，高价值适合保存订单账户财务信息。**推荐用此方案**
 
 ![常见的mysql集群方案](常见的mysql集群方案.jpg)
