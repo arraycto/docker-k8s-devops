@@ -30,3 +30,7 @@
 ![添加调度IP_2](images/添加调度IP_2.png)
 
 ![添加调度IP_3](images/添加调度IP_3.png)
+
+#### 4.本地的IDEA或者PyCharm想连接Linux上的Docker，进行远程打包和部署
+
+参考教程 [Idea连接服务器docker并部署代码到docker实现一键启动](https://www.cnblogs.com/hsz-csy/p/9488469.html)
