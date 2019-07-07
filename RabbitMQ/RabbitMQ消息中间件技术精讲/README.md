@@ -15,7 +15,7 @@
 > 本章首先为大家讲解互联网大厂为什么选择RabbitMQ? RabbitMQ的高性能之道是如何做到的？什么是AMPQ高级协议？AMPQ核心概念是什么？RabbitMQ整体架构模型是什么样子的？RabbitMQ消息是如何流转的？RabbitMQ安装与使用命令行与管控台，RabbitMQ消息生产与消费，RabbitMQ交换机详解，RabbitMQ队列、绑定、虚拟主机、消息等...
 
 + 2-1 本章导航
-+ 2-2 哪些互联网大厂在使用RabbitMQ,为什么？ 试看
++ 2-2 哪些互联网大厂在使用RabbitMQ,为什么？
 + 2-3 RabbitMQ高性能的原因
 + 2-4 AMQP高级消息队列协议与模型
 + 2-5 AMQP核心概念讲解
