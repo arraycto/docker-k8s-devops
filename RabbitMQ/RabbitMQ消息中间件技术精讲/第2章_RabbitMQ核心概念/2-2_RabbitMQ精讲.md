@@ -71,4 +71,7 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 + rabbitmqctl stop_app：关闭应用
 + rabbitmqctl start_app:启动应用
 + rabbitmqctl status:节点状态
-+ 
++ rabbitmqctl add_user username password:添加用户
++ rabbitmqctl list_users:列出所有用户
++ rabbitmqctl delete_user username:删除用户
++ rabbitmqctl clear_permissions -p vhostpath username:清除用户权限
