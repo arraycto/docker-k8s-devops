@@ -52,6 +52,23 @@ RabbitMQ是一个开源的消息代理和队列服务器，用来通过普通协
 + `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
 + `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
 
+在rancher中的启动方式如下：
+
+![Rancher中启动RabbitMQ](images/Rancher中启动RabbitMQ.png)
+
 然后通过 http://ip:9527/#/ 即可访问RabbitMQ，用上面的**root-aA111111**即可访问RabbitMQ的Web界面.当不指定用户名和密码时，默认是**guest-guest**
 
 web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/java-zhao/p/5670453.html)
+
+## 9.RabbitMQ的命令行与管控台基础操作
+
+> 可以直接在rancher中容器操作的'执行命令行'选项来执行下面的命令
+
+![Rancher中进入RabbitMQ容器中行执行命令](images/Rancher中进入RabbitMQ容器中行执行命令.png)
+
+### 9.1 命令行
+
++ rabbitmqctl stop_app：关闭应用
++ rabbitmqctl start_app:启动应用
++ rabbitmqctl status:节点状态
++ 
