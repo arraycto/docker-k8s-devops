@@ -35,4 +35,23 @@ RabbitMQ是一个开源的消息代理和队列服务器，用来通过普通协
 + Exchange:交换机，接收消息，根据路由键转发消息到绑定的队列
 + Binding:Exchange和Queue之间的虚拟连接，binding中可以包含routing key
 + Routing key:一个路由规则，虚拟机可用它来确定如何路由一个特定消息
-+ 
++ Queue:也称为Message Queue，消息队列，保存消息并将他们转发给消费者
+
+## 6.RabbitMQ的整体架构
+
+![RabbitMQ整体架构](images/RabbitMQ整体架构.png)
+
+## 7.RabbitMQ的消息流转示意图
+
+![RabbitMQ的消息流转](images/RabbitMQ的消息流转.png)
+
+## 8.RabbitMQ的安装(使用Docker)
+
+> docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 -p 25672:25672 -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=aA111111 rabbitmq:3-management
+
++ `-e RABBITMQ_DEFAULT_USER=root`:指定用户名
++ `-e RABBITMQ_DEFAULT_PASS=aA111111`:指定密码
+
+然后通过 http://ip:9527/#/ 即可访问RabbitMQ，用上面的**root-aA111111**即可访问RabbitMQ的Web界面.当不指定用户名和密码时，默认是**guest-guest**
+
+web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/java-zhao/p/5670453.html)
