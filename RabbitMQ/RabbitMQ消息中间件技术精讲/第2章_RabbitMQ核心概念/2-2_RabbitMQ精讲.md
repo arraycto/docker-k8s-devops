@@ -106,8 +106,8 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 
 ### 10.1 基础步骤
 
-+ ConnectionFactory:获取连接工厂
-+ Connection:客户端创建一个连接
-+ Channel:连接后创建需要的数据通信信道，可发送和接收消息
-+ Queue:创建具体的消息存储队列
-+ Producer & Consumer:生产者和消费者
++ 1.ConnectionFactory:获取连接工厂
++ 2.Connection:客户端创建一个连接
++ 3.Channel:连接后创建需要的数据通信信道，可发送和接收消息
++ 4.Queue:创建具体的消息存储队列
++ 5.Producer & Consumer:生产者和消费者
