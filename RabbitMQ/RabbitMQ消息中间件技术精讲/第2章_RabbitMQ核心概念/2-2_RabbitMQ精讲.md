@@ -29,10 +29,10 @@ RabbitMQ是一个开源的消息代理和队列服务器，用来通过普通协
 
 + Server:又称Broker，接受客户端连接，实现AMQP实体服务
 + Connection:连接，应用程序与Broker的网络连接
-+ Channel:网络信道，几乎所有的操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立多个Channel，每个Channel代表一个会话任务
++ Channel:网络信道，几乎所有的操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立多个Channel，每个Channel代表一个会话任务(一个Connection对应多个Channel)
 + Message:消息，服务器和应用程序之间传送的数据，由Properties和Body组成。Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性；Body则就是消息体内容
 + Virtual host:虚拟地址，用于进行逻辑隔离，最上层的消息路由。一个Virtual Host里面可以有若干个Exchange和Queue，同一个Virtual Host里面不能有相同名称的Exchange或Queue
-+ Exchange:交换机，接收消息，根据路由键转发消息到绑定的队列
++ Exchange:交换机，接收消息，根据路由键转发消息到绑定的队列.Durable
 + Binding:Exchange和Queue之间的虚拟连接，binding中可以包含routing key
 + Routing key:一个路由规则，虚拟机可用它来确定如何路由一个特定消息
 + Queue:也称为Message Queue，消息队列，保存消息并将他们转发给消费者
@@ -95,3 +95,10 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 + `rabbitmqctl change_cluster_node_type disc | ram`:修改集群节点的存储形式
 + `rabbitmqctl forget_cluster_node [--offline]`:忘记节点(摘除节点)
 + `rabbitmqctl rename_cluster_node oldnode1 newnode1 [oldnode2] [newnode2]`:修改节点名称
+
+### 9.2 管控台(网页版的DashBoard)
+
+> 参考文章 [RabbitMq系列之三：web管理端](https://www.jianshu.com/p/7b6e575fd451)
+
+![交换机Exchange解析](images/交换机Exchange解析.png)
+
