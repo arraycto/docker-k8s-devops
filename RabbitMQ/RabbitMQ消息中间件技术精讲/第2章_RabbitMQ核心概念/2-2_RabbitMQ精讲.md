@@ -104,15 +104,15 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 
 ## 10.急速入门之消息生产与消费
 
-### 10.1 基础步骤
-
 + 1.ConnectionFactory:获取连接工厂
 + 2.Connection:客户端创建一个连接
 + 3.Channel:连接后创建需要的数据通信信道，可发送和接收消息
 + 4.Queue:创建具体的消息存储队列
 + 5.Producer & Consumer:生产者和消费者
 
-`注意事项：不指定Exchange,会默认走AMQP default的exchange，这时routingKey和consumer的QueueName是对应的，相等才能发消息`
+## 11. 代码实战
+
+> 见[2-10_code](2-10_code)，注意事项：不指定Exchange,会默认走AMQP default的exchange，这时routingKey和consumer的QueueName是对应的，相等才能发消息`
 
 ![RabbitMQ当exchange为空时走AMQP_default策略0](images/RabbitMQ当exchange为空时走AMQP_default策略0.png)
 ![RabbitMQ当exchange为空时走AMQP_default策略1](images/RabbitMQ当exchange为空时走AMQP_default策略1.png)
