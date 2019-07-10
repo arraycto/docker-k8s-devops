@@ -33,6 +33,7 @@ public class Producer {
         // 4.Queue:通过Channel发送数据
         for (int i = 0; i < 5; i++) {
             String msg = "Hello rabbitmq";
+            // 不指定Exchange,会默认走AMQP default的exchange，这时routingKey和consumer的QueueName是对应的，相等才能发消息
             channel.basicPublish("", "test001", null, msg.getBytes());
         }
 

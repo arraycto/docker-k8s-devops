@@ -111,3 +111,10 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 + 3.Channel:连接后创建需要的数据通信信道，可发送和接收消息
 + 4.Queue:创建具体的消息存储队列
 + 5.Producer & Consumer:生产者和消费者
+
+`注意事项：不指定Exchange,会默认走AMQP default的exchange，这时routingKey和consumer的QueueName是对应的，相等才能发消息`
+
+![RabbitMQ当exchange为空时走AMQP_default策略0](images/RabbitMQ当exchange为空时走AMQP_default策略0.png)
+![RabbitMQ当exchange为空时走AMQP_default策略1](images/RabbitMQ当exchange为空时走AMQP_default策略1.png)
+![RabbitMQ当exchange为空时走AMQP_default策略2](images/RabbitMQ当exchange为空时走AMQP_default策略2.png)
+![RabbitMQ当exchange为空时走AMQP_default策略3](images/RabbitMQ当exchange为空时走AMQP_default策略3.png)
