@@ -128,9 +128,16 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 Exchange的常见属性解析：
 
 + `Name`:交换机名称
-+ `Type`:交换机类型dirent、topic、fanout、headers
++ `Type`:交换机类型direct、topic、fanout、headers,下面详解
 + `Durability`:是否需要持久化,true为持久化
 + `Auto Delete`:当最后一个绑定到Exchange上的队列删除后，自动删除该Exchange
 + `Internal`:当前Exchange是否用于RabbitMQ内部使用，是地话为True,默认为false
 + `Arguments`:扩展参数，用于扩展AMQP协议自定制化使用
-+ 
+
+下面是常见的交换进Exchange的类型Type：
+
+### 12.1 Direct Exchange
+
+> 特点：所有发送到Direct Exchange的消息会被转发到RoutingKey中指定的Queue
+
+注意：Direct模式可以使用RabitMQ自带的Exchange:`AMQP default`, 图示见[RabbitMQ当exchange为空时走AMQP_default策略2](images/RabbitMQ当exchange为空时走AMQP_default策略2.png),所以不需要将Exchange进行任何绑定(binding)操作，消息传递时，RoutingKey必须完全匹配才会被队列接收，否则会被抛弃
