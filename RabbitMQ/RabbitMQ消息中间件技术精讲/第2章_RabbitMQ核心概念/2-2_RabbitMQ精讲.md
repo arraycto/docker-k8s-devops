@@ -110,11 +110,27 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 + 4.Queue:创建具体的消息存储队列
 + 5.Producer & Consumer:生产者和消费者
 
-## 11. 代码实战
+## 11.代码实战
 
-> 见[2-10_code](2-10_code)，注意事项：不指定Exchange,会默认走AMQP default的exchange，这时routingKey和consumer的QueueName是对应的，相等才能发消息`
+> 见[2-10_code](2-10_code)，注意事项：不指定Exchange,会默认走AMQP default的exchange，这时Producer端的routingKey和Consumer端的QueueName必须是相等的才能发消息`
 
 ![RabbitMQ当exchange为空时走AMQP_default策略0](images/RabbitMQ当exchange为空时走AMQP_default策略0.png)
 ![RabbitMQ当exchange为空时走AMQP_default策略1](images/RabbitMQ当exchange为空时走AMQP_default策略1.png)
 ![RabbitMQ当exchange为空时走AMQP_default策略2](images/RabbitMQ当exchange为空时走AMQP_default策略2.png)
 ![RabbitMQ当exchange为空时走AMQP_default策略3](images/RabbitMQ当exchange为空时走AMQP_default策略3.png)
+
+## 12.Exchange交换机
+
+> Exchange:接收消息，并根据路由键转发消息所绑定的队列，图示如下
+
+![Exchange图示](images/Exchange图示.png)
+
+Exchange的常见属性解析：
+
++ `Name`:交换机名称
++ `Type`:交换机类型dirent、topic、fanout、headers
++ `Durability`:是否需要持久化,true为持久化
++ `Auto Delete`:当最后一个绑定到Exchange上的队列删除后，自动删除该Exchange
++ `Internal`:当前Exchange是否用于RabbitMQ内部使用，是地话为True,默认为false
++ `Arguments`:扩展参数，用于扩展AMQP协议自定制化使用
++ 
