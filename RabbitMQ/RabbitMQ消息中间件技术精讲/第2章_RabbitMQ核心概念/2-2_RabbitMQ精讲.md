@@ -147,3 +147,9 @@ Direct Exchange的图示如下：
 ![DirectExchange](images/DirectExchange.png)
 
 代码见 [exchange/direct](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/exchange/direct)
+
+Web管理界面如下：
+
+![DirectChange1](images/DirectChange1.png)
+
+![DirectChange2](images/DirectChange2.png)
