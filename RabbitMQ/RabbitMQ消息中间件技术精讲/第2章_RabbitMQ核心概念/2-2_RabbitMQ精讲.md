@@ -112,7 +112,7 @@ web界面的功能介绍可见：[RabbitMQ管理界面](https://www.cnblogs.com/
 
 ## 11.代码实战
 
-> 见[2-10_code](2-10_code)，注意事项：不指定Exchange,会默认走AMQP default的exchange，这时Producer端的routingKey和Consumer端的QueueName必须是相等的才能发消息`
+> 代码见[quickstart](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/quickstart)，注意事项：不指定Exchange,会默认走AMQP default的exchange，这时Producer端的routingKey和Consumer端的QueueName必须是相等的才能发消息`
 
 ![RabbitMQ当exchange为空时走AMQP_default策略0](images/RabbitMQ当exchange为空时走AMQP_default策略0.png)
 ![RabbitMQ当exchange为空时走AMQP_default策略1](images/RabbitMQ当exchange为空时走AMQP_default策略1.png)
@@ -146,4 +146,4 @@ Direct Exchange的图示如下：
 
 ![DirectExchange](images/DirectExchange.png)
 
-
+代码见 [exchange/direct](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/exchange/direct)
