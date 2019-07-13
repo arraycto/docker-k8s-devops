@@ -153,3 +153,8 @@ Web管理界面如下：
 ![DirectChange1](images/DirectChange1.png)
 
 ![DirectChange2](images/DirectChange2.png)
+
+### 12.2 Topic Exchange
+
+> 所有发送到Topic Exchange的消息都会被转发到所有关系RoutingKey中指定Topic的Queue上
+
