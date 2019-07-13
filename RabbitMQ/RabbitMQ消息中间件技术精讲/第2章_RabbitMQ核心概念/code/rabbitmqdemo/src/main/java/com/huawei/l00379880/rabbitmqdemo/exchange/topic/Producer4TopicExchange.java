@@ -4,7 +4,7 @@
  * @date        : 2019-07-12 07:50
  * @email       : liangshanguang2@gmail.com
  ***********************************************************/
-package com.huawei.l00379880.rabbitmqdemo.exchange.direct;
+package com.huawei.l00379880.rabbitmqdemo.exchange.topic;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -13,7 +13,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class Producer4DirectExchange {
+public class Producer4TopicExchange {
     public static void main(String[] args) throws IOException, TimeoutException {
         // 1.ConnectionFactory:获取连接工厂,并进行基础配置
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -31,13 +31,16 @@ public class Producer4DirectExchange {
         Channel channel = connection.createChannel();
 
         // 4.声明
-        String exchangeName = "test_direct_exchange";
-        String routingKey = "test.direct";
+        String exchangeName = "test_topic_exchange";
+        String routingKey1 = "user.save";
+        String routingKey2 = "user.update";
+        String routingKey3 = "user.delete.abc";
 
         // 5.发送
-        String msg = "Hello, Direct Exchange Message";
-        channel.basicPublish(exchangeName, routingKey, null, msg.getBytes());
-
+        String msg = "Hello, Topic Exchange Message ...";
+        channel.basicPublish(exchangeName, routingKey1, null, msg.getBytes());
+        channel.basicPublish(exchangeName, routingKey2, null, msg.getBytes());
+        channel.basicPublish(exchangeName, routingKey3, null, msg.getBytes());
 
         channel.close();
         connection.close();
