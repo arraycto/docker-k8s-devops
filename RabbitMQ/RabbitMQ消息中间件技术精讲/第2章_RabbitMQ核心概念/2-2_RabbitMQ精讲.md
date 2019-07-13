@@ -156,5 +156,16 @@ Web管理界面如下：
 
 ### 12.2 Topic Exchange
 
-> 所有发送到Topic Exchange的消息都会被转发到所有关系RoutingKey中指定Topic的Queue上
+> 所有发送到Topic Exchange的消息都会被转发到所有关系RoutingKey中指定Topic的Queue上.最大的特点是支持模糊匹配
 
+Exchange将RoutingKey和某Topic进行模糊匹配，此时队列需要绑定一个Topic
+
+**注意**：可以使用通配符进行模糊匹配，比如：
++ 符号`#`匹配一个或多个词
+  > 例如：`log.#`能够匹配到`log.info`和`log.info.1234567`
++ 符号`*`匹配不多不少一个词
+  > 例如：`log.*`只能匹配到`log.info`，不能匹配到`log.info.1234567`
+  
+Topic Exchange的模糊匹配图示
+
+![TopicExchange图示](images/TopicExchange图示.png)
