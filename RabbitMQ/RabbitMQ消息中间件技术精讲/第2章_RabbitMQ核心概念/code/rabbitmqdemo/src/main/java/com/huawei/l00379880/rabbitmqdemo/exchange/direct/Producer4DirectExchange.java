@@ -38,7 +38,6 @@ public class Producer4DirectExchange {
         String msg = "Hello, Direct Exchange Message";
         channel.basicPublish(exchangeName, routingKey, null, msg.getBytes());
 
-
         channel.close();
         connection.close();
     }

@@ -169,3 +169,9 @@ Exchange将RoutingKey和某Topic进行模糊匹配，此时队列需要绑定一
 Topic Exchange的模糊匹配图示
 
 ![TopicExchange图示](images/TopicExchange图示.png)
+
+代码示例见[TopicExchange的代码实例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/exchange/topic)
+
+代码的订阅关系如图：
+
+![TopicExchange代码示例](images/TopicExchange代码示例.png)
