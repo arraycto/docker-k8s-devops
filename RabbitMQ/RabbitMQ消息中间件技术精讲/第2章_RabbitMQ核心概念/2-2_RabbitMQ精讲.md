@@ -3,6 +3,7 @@
 > 参考教程 [RabbitMQ教程](https://blog.csdn.net/hellozpc/article/details/81436980)
 
 ## 1.概述
+
 RabbitMQ是一个开源的消息代理和队列服务器，用来通过普通协议在完全不同的应用之间共享数据，RabbitMQ是使用Erlang语言来编写地，并且RabbitMQ是基于AMQP协议的
 
 ## 2.优点

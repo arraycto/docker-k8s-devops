@@ -41,7 +41,10 @@ public class Consumer4TopicExchange {
         String exchangeType = "topic";
         String queueName = "test_topic_queue";
         // 只要生产者的消息routing key以user开头就会被当前消费者捕捉到
-        String routingKey = "user.#";
+        // String routingKey = "user.#";
+
+        // 改成user.*后就接收不到类似user.xxx.xxx格式的消息了,但是上面设置的user.#记得解绑(Unbind)
+        String routingKey = "user.*";
         // 声明自己的交换机Exchange
         channel.exchangeDeclare(exchangeName, exchangeType, true, false, false, null);
         // 声明消息队列
