@@ -14,3 +14,15 @@
 + 使用HAProxy的原因：对TCP/IP的支持好，有官方的Docker镜像，方便学习
 
 ![负载均衡中间件的对比](负载均衡中间件的对比.jpg)
+
+## 使用HAProxy进行数据库的负载均衡
+
+### 1.准备hasproxy的镜像
+
+```shell
+docker pull haproxy
+```
+
+### 2.自定义配置文件
+
++ `touch /usr1/l00379880/haproxy/haproxy.cfg`
