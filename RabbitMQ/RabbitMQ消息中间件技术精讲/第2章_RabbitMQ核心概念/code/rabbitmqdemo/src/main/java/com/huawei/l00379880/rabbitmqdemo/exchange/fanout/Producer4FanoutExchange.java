@@ -31,16 +31,15 @@ public class Producer4FanoutExchange {
         Channel channel = connection.createChannel();
 
         // 4.声明
-        String exchangeName = "test_topic_exchange";
-        String routingKey1 = "user.save";
-        String routingKey2 = "user.update";
-        String routingKey3 = "user.delete.abc";
+        String exchangeName = "test_fanout_exchange";
+        // 不需要routingKey
 
         // 5.发送
-        String msg = "Hello, Topic Exchange Message ...";
-        channel.basicPublish(exchangeName, routingKey1, null, msg.getBytes());
-        channel.basicPublish(exchangeName, routingKey2, null, msg.getBytes());
-        channel.basicPublish(exchangeName, routingKey3, null, msg.getBytes());
+        for (int i = 0; i < 10; i++) {
+            String msg = "Hello World RabbitMQ 4 Fanout Exchange";
+            // Fanout类型的Exchange不会和RoutingKey产生任何绑定关系,随便设置
+            channel.basicPublish(exchangeName, "sxsds", null, msg.getBytes());
+        }
 
         channel.close();
         connection.close();

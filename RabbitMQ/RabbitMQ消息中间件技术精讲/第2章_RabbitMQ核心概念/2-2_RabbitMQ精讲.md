@@ -192,3 +192,4 @@ Topic Exchange的模糊匹配图示
 
 ![FanoutExchange图解](images/FanoutExchange图解.png)
 
+代码示例见[FanoutExchange的代码实例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/exchange/fanout)

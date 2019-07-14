@@ -37,14 +37,11 @@ public class Consumer4FanoutExchange {
         Channel channel = connection.createChannel();
 
         // 4.声明
-        String exchangeName = "test_topic_exchange";
-        String exchangeType = "topic";
-        String queueName = "test_topic_queue";
-        // 只要生产者的消息routing key以user开头就会被当前消费者捕捉到
-        // String routingKey = "user.#";
-
-        // 改成user.*后就接收不到类似user.xxx.xxx格式的消息了,但是上面设置的user.#记得解绑(Unbind)
-        String routingKey = "user.*";
+        String exchangeName = "test_fanout_exchange";
+        String exchangeType = "fanout";
+        String queueName = "test_fanout_queue";
+        // 不设置路由键，所有绑定交换机的队列都会受到生产端发来的消息
+        String routingKey = "";
         // 声明自己的交换机Exchange
         channel.exchangeDeclare(exchangeName, exchangeType, true, false, false, null);
         // 声明消息队列
