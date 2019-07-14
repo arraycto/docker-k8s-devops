@@ -1,5 +1,7 @@
 # 4-2 创建PXC的MySQL集群
 
+> 本节是在单主机上进行地，多节点的pxc集群搭建参考 https://www.cnblogs.com/dowi/p/10220166.html ,注意pxc镜像的版本一定要用5.7.21版本，即pull的时候要用`docker pull percona/percona-xtradb-cluster:5.7.21`,不用5.7.21会出各种奇怪的问题！！
+
 ## 镜像地址
 
 [percona/percona-xtradb-cluster](https://hub.docker.com/r/percona/percona-xtradb-cluster)
