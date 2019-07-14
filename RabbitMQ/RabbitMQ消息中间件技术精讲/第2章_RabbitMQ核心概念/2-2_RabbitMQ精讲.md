@@ -162,6 +162,7 @@ Web管理界面如下：
 Exchange将RoutingKey和某Topic进行模糊匹配，此时队列需要绑定一个Topic
 
 **注意**：可以使用通配符进行模糊匹配，比如：
+
 + 符号`#`匹配一个或多个词
   > 例如：`log.#`能够匹配到`log.info`和`log.info.1234567`
 + 符号`*`匹配不多不少一个词
@@ -176,3 +177,18 @@ Topic Exchange的模糊匹配图示
 代码的订阅关系如图：
 
 ![TopicExchange代码示例](images/TopicExchange代码示例.png)
+
+### 12.3 Fanout Exchange
+
+> 类似于广播
+
+特点：
+
++ 不处理路由键，只需要简单地将队列绑定到交换机上
++ 发送到交换机的消息都会被转发到与该交换机绑定的所有队列上
++ Fanout交换机转发消息是最快地
+
+图示如下：
+
+![FanoutExchange图解](images/FanoutExchange图解.png)
+
