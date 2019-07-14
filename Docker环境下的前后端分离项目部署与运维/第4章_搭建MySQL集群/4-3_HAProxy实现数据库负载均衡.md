@@ -61,7 +61,7 @@ listen  admin_stats
     #统计报告格式
     stats realm     Global\ statistics
     #登陆帐户信息
-    stats auth  admin:abc123456
+    stats auth  root:tooldev
 #数据库负载均衡
 listen  proxy-mysql
     #访问的IP和端口
@@ -78,11 +78,37 @@ listen  proxy-mysql
     option  tcplog
     #在MySQL中创建一个没有权限的haproxy用户，密码为空。Haproxy使用这个账户对MySQL数据库心跳检测
     option  mysql-check user haproxy
-    server  MySQL_1 172.18.0.2:3306 check weight 1 maxconn 2000  
-    server  MySQL_2 172.18.0.3:3306 check weight 1 maxconn 2000  
-    server  MySQL_3 172.18.0.4:3306 check weight 1 maxconn 2000 
-    server  MySQL_4 172.18.0.5:3306 check weight 1 maxconn 2000
-    server  MySQL_5 172.18.0.6:3306 check weight 1 maxconn 2000
+    server  MySQL_1 10.162.119.41:3306 check weight 1 maxconn 2000  
+    server  MySQL_2 10.162.71.9:3306 check weight 1 maxconn 2000  
+    server  MySQL_3 10.162.55.14:3306 check weight 1 maxconn 2000 
     #使用keepalive检测死链
     option  tcpka  
 ```
+
+创建haproxy心跳检测用户(在任何一个数据库节点上启动均可)
+
+```shell
+create user 'haproxy'@'%' identified by '';
+```
+
+找一台新的VM，然后执行docker命令
+
+```shell
+docker run -it -d -p 80:8888 -p 3306:3306 -v /usr1/l00379880/haproxy:/usr/local/etc/haproxy --name haproxy --privileged --net=net1 haproxy
+```
+
+80代表web访问的地址，可以看到数据库集群的实时情况，3306是对外的统一MySQL连接端口，
+
+进入后台docker进程
+
+```shell
+docker exec -it haproxy bash
+```
+
+启动haproxy进程
+
+```shell
+haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+```
+
+然后可通过80端口访问PXC集群的监控，可以通过3306端口进行数据库的连接
