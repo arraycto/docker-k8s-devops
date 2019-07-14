@@ -193,3 +193,36 @@ Topic Exchange的模糊匹配图示
 ![FanoutExchange图解](images/FanoutExchange图解.png)
 
 代码示例见[FanoutExchange的代码实例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/exchange/fanout)
+
+## 13 本章总结
+
+### Binding-绑定
+
++ Exchange与Exchange、Queue之间的连接关系
++ Binding中可以包含RoutingKey或者参数
+
+### Queue-消息队列
+
++ 消息队列，实际存储消息数据
++ Durability:是否持久化，Durable:是，Transient:否
++ Auto Delete:如选yes，代表当最后一个监听被移除之后，该Queue会被自动删除
+
+### Message-消息
+
++ 服务器和应用程序之间传送的数据
++ 本质上就是一段数据，由Properties和Payload(Body)组成
++ 常用属性：delivery mode、headers(自定义属性)
++ 其他属性
+  + content_type:消息的类型
+  + content_encoding:消息的编码
+  + priority:消息优先级，0~9
+  + rorrelation_id:消息的唯一id(通常是业务相关的信息标志拼接起来地)
+  + replay_to:消息发送失败时返回给哪个队列
+  + expiration:过期时间，超时未被消费会自动被从消息队列剔除
+  + message_id:自动生成的消息id
+  + timestamp
+  + type
+  + user_id
+  + app_id
+  + cluster_id
+  + ......
