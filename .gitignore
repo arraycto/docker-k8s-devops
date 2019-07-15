@@ -1,1 +1,8 @@
-RabbitMQ/RabbitMQ消息中间件技术精讲/第2章_RabbitMQ核心概念/2-10_code/rabbitmqdemo/.idea/workspace.xml
+.idea/
+.settings/
+.project
+*.iml
+.DS_Store
+*.class
+.classpath
+RabbitMQ/RabbitMQ消息中间件技术精讲/第2章_RabbitMQ核心概念/code/rabbitmqdemo/src/main/java/com/huawei/l00379880/.DS_Store
