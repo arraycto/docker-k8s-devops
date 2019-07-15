@@ -228,3 +228,9 @@ Topic Exchange的模糊匹配图示
   + ......
 
 ![Message的常用属性](images/Message的常用属性.png)
+
+### Virtual Host 虚拟主机
+
++ 虚拟地址，用于进行地址隔离，最上层的消息路由
++ 一个Virtual Host里面可以有若干个Exchange和Queue
++ 同一个Virtual Host里面不能有相同名称的Exchange或Queue
