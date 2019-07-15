@@ -226,3 +226,5 @@ Topic Exchange的模糊匹配图示
   + app_id
   + cluster_id
   + ......
+
+![Message的常用属性](images/Message的常用属性.png)

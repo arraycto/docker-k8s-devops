@@ -12,6 +12,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 public class Consumer {
@@ -46,8 +47,9 @@ public class Consumer {
             QueueingConsumer.Delivery delivery = queueingConsumer.nextDelivery();
             String msg = new String(delivery.getBody());
             System.out.println("消费端收到消息：" + msg);
-            // Envelope envelope = delivery.getEnvelope();
-            // envelope.getDeliveryTag();
+
+            Map<String, Object> headers = delivery.getProperties().getHeaders();
+            System.out.println(headers);
         }
     }
 }
