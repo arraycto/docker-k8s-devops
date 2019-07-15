@@ -44,3 +44,8 @@
 
 ![Confirm消息确认机制](images/Confirm消息确认机制.png) 
 
+### 3.3.2 Confirm消息机制的实现
+
+代码流程图如下：
+
+![Confirm消息机制的实现](images/Confirm消息机制的实现.png)
