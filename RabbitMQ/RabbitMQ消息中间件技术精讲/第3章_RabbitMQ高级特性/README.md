@@ -49,3 +49,15 @@
 代码流程图如下：
 
 ![Confirm消息机制的实现](images/Confirm消息机制的实现.png)
+
+## 3.4 Return消息机制
+
+> 把不可达的消息返回给发送端
+
+![Return消息机制](images/Return消息机制.png)
+
+![Return消息机制的API配置](images/Return消息机制的API配置.png)
+
+![Return消息机制图示](images/Return消息机制图示.png)
+
+
