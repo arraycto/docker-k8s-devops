@@ -45,14 +45,14 @@ public class Producer {
         channel.addConfirmListener(new ConfirmListener() {
             @Override
             public void handleAck(long deliveryTag, boolean multiple) throws IOException {
-                // 返回失败时
-                System.out.println("-------no ack------");
+                // 返回成功时
+                System.out.println("---------ack-------");
             }
 
             @Override
             public void handleNack(long deliveryTag, boolean multiple) throws IOException {
-                // 返回成功时
-                System.out.println("---------ack-------");
+                // 返回失败时
+                System.out.println("-------no ack------");
             }
         });
 
