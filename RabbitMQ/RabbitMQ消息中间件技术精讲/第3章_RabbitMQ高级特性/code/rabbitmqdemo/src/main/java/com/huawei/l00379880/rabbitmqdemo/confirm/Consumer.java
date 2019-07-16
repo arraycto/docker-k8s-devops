@@ -32,6 +32,7 @@ public class Consumer {
         Channel channel = connection.createChannel();
 
         String exchangeName = "test_confirm_exchange";
+        String exchangeType = "topic";
         String routingKey = "confirm.#";
         String queueName = "test_confirm_queue";
 
@@ -42,6 +43,7 @@ public class Consumer {
 
         // 5.创建消费者
         QueueingConsumer queueingConsumer = new QueueingConsumer(channel);
+        channel.basicConsume(queueName, true, queueingConsumer);
         while (true) {
             QueueingConsumer.Delivery delivery = queueingConsumer.nextDelivery();
             String msg = new String(delivery.getBody());
