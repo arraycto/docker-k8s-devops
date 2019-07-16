@@ -50,6 +50,8 @@
 
 ![Confirm消息机制的实现](images/Confirm消息机制的实现.png)
 
+代码示例见 [Confirm消息机制的实现](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/confirm)
+
 ## 3.4 Return消息机制
 
 > 把不可达的消息返回给发送端
@@ -60,4 +62,8 @@
 
 ![Return消息机制图示](images/Return消息机制图示.png)
 
+代码示例见 [Return消息机制代码范例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/returnlistener)
 
+## 3.5 消费端的自定义监听
+
+![消费端的自定义监听](images/消费端的自定义监听.png)
