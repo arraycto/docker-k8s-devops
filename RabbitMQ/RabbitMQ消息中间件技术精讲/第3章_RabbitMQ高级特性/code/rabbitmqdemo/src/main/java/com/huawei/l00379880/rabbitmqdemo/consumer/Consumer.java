@@ -31,9 +31,9 @@ public class Consumer {
         // 3.Channel:通过Connection创建Channel,连接后创建需要的数据通信信道，可发送和接收消息
         Channel channel = connection.createChannel();
 
-        String exchangeName = "test_return_exchange";
-        String routingKey = "return.#";
-        String queueName = "test_return_queue";
+        String exchangeName = "test_consumer_exchange";
+        String routingKey = "consumer.#";
+        String queueName = "test_consumer_queue";
 
         // 4.声明交换机和队列并进行绑定设置，最后绑定路由key
         channel.exchangeDeclare(exchangeName, "topic", true, false, null);
@@ -46,7 +46,6 @@ public class Consumer {
         while (true) {
             QueueingConsumer.Delivery delivery = queueingConsumer.nextDelivery();
             String msg = new String(delivery.getBody());
-
             System.out.println("消费端收到消息：" + msg);
         }
     }

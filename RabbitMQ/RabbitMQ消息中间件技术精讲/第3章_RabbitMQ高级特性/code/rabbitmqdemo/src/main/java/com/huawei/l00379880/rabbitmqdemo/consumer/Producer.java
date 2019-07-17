@@ -6,7 +6,9 @@
  ***********************************************************/
 package com.huawei.l00379880.rabbitmqdemo.consumer;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -31,30 +33,14 @@ public class Producer {
         // 4.指定我们的消息投递模式：消息的确认模式
         channel.confirmSelect();
 
-        String exchangeName = "test_return_exchange";
-        String routingKey = "return.save";
-        String routingKeyError = "abc.save";
+        String exchangeName = "test_consumer_exchange";
+        String routingKey = "consumer.save";
 
         // 5.发送一条消息
-        String msg = "RabbitMQ Return Message";
+        String msg = "RabbitMQ Consumer Message";
 
-        // 6.添加一个return监听,用于监听不可达的消息
-        channel.addReturnListener(new ReturnListener() {
-            @Override
-            public void handleReturn(int replyCode, String replyText, String exchange, String routingKey,
-                                     AMQP.BasicProperties properties, byte[] body) throws IOException {
-                System.out.println("-----------handle return----------");
-                System.out.println("replyCode:" + replyCode);
-                System.out.println("replyText:" + replyText);
-                System.out.println("exchange:" + exchange);
-                System.out.println("routingKey:" + routingKey);
-                System.out.println("properties:" + properties);
-                System.out.println("body:" + body);
-            }
-        });
-        // routingKey可达
-        channel.basicPublish(exchangeName, routingKey, true, null, msg.getBytes());
-        // routingKeyError不可达
-        channel.basicPublish(exchangeName, routingKeyError, true, null, msg.getBytes());
+        for (int i = 0; i < 5; i++) {
+            channel.basicPublish(exchangeName, routingKey, true, null, msg.getBytes());
+        }
     }
 }
