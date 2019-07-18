@@ -9,7 +9,6 @@ package com.huawei.l00379880.rabbitmqdemo.consumer;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.QueueingConsumer;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -40,13 +39,7 @@ public class Consumer {
         channel.queueDeclare(queueName, true, false, false, null);
         channel.queueBind(queueName, exchangeName, routingKey);
 
-        // 5.创建消费者
-        QueueingConsumer queueingConsumer = new QueueingConsumer(channel);
-        channel.basicConsume(queueName, true, queueingConsumer);
-        while (true) {
-            QueueingConsumer.Delivery delivery = queueingConsumer.nextDelivery();
-            String msg = new String(delivery.getBody());
-            System.out.println("消费端收到消息：" + msg);
-        }
+        // 5.创建消费者,使用自定义的回调类，其中自己实现了handleDelivery()方法
+        channel.basicConsume(queueName, true, new MyConsumer(channel));
     }
 }
