@@ -66,6 +66,14 @@
 
 ## 3.5 消费端的自定义监听
 
+> 实现Consumer或者继承DefaultConsumer就可以代码原来麻烦的for循环；额
+
 ![消费端的自定义监听](images/消费端的自定义监听.png)
 
+代码示例见 [此定义消费者Consumer代码范例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/consumer)
+
+## 3.6 消息的限流
+
+![消费端限流](images/消费端限流.png)
+![消费端限流2](images/消费端限流2.png)
 
