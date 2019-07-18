@@ -24,6 +24,9 @@ public class MyConsumer extends DefaultConsumer {
         super(channel);
     }
 
+    /**
+     * 原来的while(true)替换成这个了
+     */
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         System.out.println("----------------consume message-------------");
