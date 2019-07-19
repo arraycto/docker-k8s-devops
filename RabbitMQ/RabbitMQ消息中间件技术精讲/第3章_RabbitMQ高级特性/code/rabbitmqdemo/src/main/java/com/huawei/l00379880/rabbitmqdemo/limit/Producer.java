@@ -33,11 +33,11 @@ public class Producer {
         // 4.指定我们的消息投递模式：消息的确认模式
         channel.confirmSelect();
 
-        String exchangeName = "test_consumer_exchange";
-        String routingKey = "consumer.save";
+        String exchangeName = "test_qos_exchange";
+        String routingKey = "qos.save";
 
         // 5.发送一条消息
-        String msg = "RabbitMQ Consumer Message";
+        String msg = "RabbitMQ QOS Message";
 
         for (int i = 0; i < 5; i++) {
             channel.basicPublish(exchangeName, routingKey, true, null, msg.getBytes());

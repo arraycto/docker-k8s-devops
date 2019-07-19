@@ -30,9 +30,9 @@ public class Consumer {
         // 3.Channel:通过Connection创建Channel,连接后创建需要的数据通信信道，可发送和接收消息
         Channel channel = connection.createChannel();
 
-        String exchangeName = "test_consumer_exchange";
-        String routingKey = "consumer.#";
-        String queueName = "test_consumer_queue";
+        String exchangeName = "test_qos_exchange";
+        String routingKey = "qos.#";
+        String queueName = "test_qos_queue";
 
         // 4.声明交换机和队列并进行绑定设置，最后绑定路由key
         channel.exchangeDeclare(exchangeName, "topic", true, false, null);
@@ -40,6 +40,9 @@ public class Consumer {
         channel.queueBind(queueName, exchangeName, routingKey);
 
         // 5.创建消费者,使用自定义的回调类，其中自己实现了handleDelivery()方法
+        // 每次最多消费3条
+        channel.basicQos(0,3,false);
+        // 要实现消费端限流：1.autoAck一定要设置为false 2.限流的基本配置见上面的basicQos函数。参数解释见本章的README
         channel.basicConsume(queueName, true, new MyConsumer(channel));
     }
 }
