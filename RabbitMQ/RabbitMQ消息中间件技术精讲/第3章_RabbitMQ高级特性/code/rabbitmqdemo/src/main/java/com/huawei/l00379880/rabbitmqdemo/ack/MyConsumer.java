@@ -33,12 +33,13 @@ public class MyConsumer extends DefaultConsumer {
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         System.out.println("----------------consume message-------------");
-        System.out.println("consumerTag:" + consumerTag);
-        System.out.println("envelope:" + envelope);
-        System.out.println("properties:" + properties);
         System.out.println("body:" + new String(body));
-
-        // 自定义签收规则，返回Ack后可以签收所有消息，否则只能签收basicQos里面prefetchCount个消息
-        channel.basicAck(envelope.getDeliveryTag(), false);
+        if (0 == properties.getHeaders().get("num")) {
+            // 等于0时把消息重新返回队列
+            channel.basicNack(envelope.getDeliveryTag(), false, true);
+        }else {
+            // 自定义签收规则，返回Ack后可以签收所有消息，否则只能签收basicQos里面prefetchCount个消息
+            channel.basicAck(envelope.getDeliveryTag(), false);
+        }
     }
 }

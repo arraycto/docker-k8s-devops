@@ -6,11 +6,14 @@
  ***********************************************************/
 package com.huawei.l00379880.rabbitmqdemo.ack;
 
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 public class Producer {
@@ -40,7 +43,15 @@ public class Producer {
         String msg = "RabbitMQ ACK Message";
 
         for (int i = 0; i < 5; i++) {
-            channel.basicPublish(exchangeName, routingKey, true, null, msg.getBytes());
+            Map<String, Object> headers = new HashMap<>();
+            headers.put("num", i);
+            // 添加props
+            AMQP.BasicProperties properties = new AMQP.BasicProperties().builder()
+                    .deliveryMode(2)
+                    .contentEncoding("UTF-8")
+                    .headers(headers)
+                    .build();
+            channel.basicPublish(exchangeName, routingKey, true, properties, msg.getBytes());
         }
     }
 }
