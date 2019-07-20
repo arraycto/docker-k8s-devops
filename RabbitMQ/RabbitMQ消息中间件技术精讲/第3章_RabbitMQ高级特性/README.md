@@ -88,8 +88,11 @@
 + 消费端进行消费的时候,如果由于业务异常我们可以进行日志的记录,然后进行补偿!
 + 如果由于服务器宕机等严重问题,那我们就需要手工进行 ACK 保障消费端消费成功!
 
+[ACK代码示例](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/ack)
+
 ### 消费端的重回队列
 
 + 对于没有处理成功的消息，把消息重新回递给Broker
 + 在实际应用中，都会关闭重回队列，也就是设置为false
 
+[重回队列代码示例，和ACK的写在一起了](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/ack)
