@@ -34,10 +34,10 @@ public class MyConsumer extends DefaultConsumer {
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         System.out.println("----------------consume message-------------");
         System.out.println("body:" + new String(body));
-        if (0 == properties.getHeaders().get("num")) {
-            // 等于0时把消息重新返回队列
+        if (0 == (Integer) properties.getHeaders().get("num")) {
+            // 等于0时把消息重新返回队列,会导致5条中只有4条被消费
             channel.basicNack(envelope.getDeliveryTag(), false, true);
-        }else {
+        } else {
             // 自定义签收规则，返回Ack后可以签收所有消息，否则只能签收basicQos里面prefetchCount个消息
             channel.basicAck(envelope.getDeliveryTag(), false);
         }

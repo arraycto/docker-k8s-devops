@@ -39,9 +39,7 @@ public class Producer {
         String exchangeName = "test_ack_exchange";
         String routingKey = "ack.save";
 
-        // 5.发送一条消息
-        String msg = "RabbitMQ ACK Message";
-
+        // 5.发送消息
         for (int i = 0; i < 5; i++) {
             Map<String, Object> headers = new HashMap<>();
             headers.put("num", i);
@@ -51,6 +49,7 @@ public class Producer {
                     .contentEncoding("UTF-8")
                     .headers(headers)
                     .build();
+            String msg = "RabbitMQ ACK Message" + i;
             channel.basicPublish(exchangeName, routingKey, true, properties, msg.getBytes());
         }
     }
