@@ -96,3 +96,12 @@
 + 在实际应用中，都会关闭重回队列，也就是设置为false
 
 [重回队列代码示例，和ACK的写在一起了](code/rabbitmqdemo/src/main/java/com/huawei/l00379880/rabbitmqdemo/ack)
+
+## 3-8 TTL队列/消息
+
+### TTL
+
++ TTL是Time To Live的缩写，也就是生存时间
++ RabbitMQ支持消息的过期时间，在消息发送时可以进行指定
++ RabbitMQ支持队列的过期时间，从消息入队列开始计算，只要超过了队列的超时时间设置，那么消息会自动地清除
+
