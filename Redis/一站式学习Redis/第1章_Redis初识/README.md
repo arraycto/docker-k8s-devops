@@ -86,7 +86,7 @@
 + [redis3.0配置文件详解](https://www.cnblogs.com/zhang-ke/p/5981108.html)
 + [Redis：默认配置文件redis.conf详解](https://www.cnblogs.com/zxtceq/p/7676911.html)
 
-```redis
+```conf
 #redis.conf
 # Redis configuration file example.
 # ./redis-server /path/to/redis.conf
